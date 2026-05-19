@@ -1,4 +1,4 @@
-# Đồ án học phần: Xây dựng Hệ thống quản lý giao việc
+# Đồ án học phần: Hệ thống quản lý giao việc
 
 ## Thông tin sinh viên
 
@@ -10,29 +10,29 @@
 
 ## Mô tả dự án
 
-Hệ thống quản lý giao việc là ứng dụng web hỗ trợ tổ chức quản lý công việc, phân công nhiệm vụ và theo dõi tiến độ thực hiện. Người quản lý có thể tạo công việc, giao cho nhân viên, theo dõi trạng thái, xem kết quả và thống kê. Người dùng có thể cập nhật trạng thái công việc, gửi kết quả và trao đổi thông tin liên quan đến công việc.
+Hệ thống quản lý giao việc là ứng dụng web hỗ trợ tổ chức quản lý dự án, phân công nhiệm vụ, theo dõi trạng thái công việc và trao đổi thông tin trong quá trình thực hiện.
 
-Dự án đang ở giai đoạn chuẩn bị cho phát triển bằng Laravel. Repo hiện tập trung vào cấu trúc thư mục, kế hoạch thực hiện, tài liệu và cấu hình ban đầu. Mã nguồn Laravel dự kiến đặt trong thư mục `src/task-manager`.
+Dự án sử dụng Laravel. Mã nguồn chính hiện nằm trong thư mục `scr`.
 
-## Công nghệ dự kiến
+## Công nghệ sử dụng
 
 - PHP
-- MySQL
 - Laravel
+- MySQL
 - Blade
 - Bootstrap hoặc CSS đơn giản
 - JavaScript khi cần thiết
-- Git và GitHub
 
-## Chức năng chính
+## Chức năng dự kiến
 
-- Quản lý người dùng.
-- Quản lý danh mục công việc hoặc dự án.
-- Quản lý giao việc.
-- Cập nhật tiến độ công việc.
-- Gửi kết quả thực hiện.
-- Bình luận hoặc trao đổi thông tin theo công việc.
-- Báo cáo và thống kê.
+- Quản lý người dùng, vai trò và phòng ban.
+- Quản lý dự án.
+- Quản lý danh mục công việc.
+- Giao việc cho nhân viên.
+- Theo dõi trạng thái và mức độ ưu tiên công việc.
+- Bình luận và ghi nhận lịch sử thay đổi trạng thái.
+- Thông báo cho người dùng.
+- Báo cáo và thống kê cơ bản.
 
 ## Cấu trúc thư mục
 
@@ -40,59 +40,44 @@ Dự án đang ở giai đoạn chuẩn bị cho phát triển bằng Laravel. R
 .
 ├── README.md
 ├── TODO.md
-├── .gitignore
 ├── assets/
 ├── progress-report/
 ├── setup/
 │   └── database/
-├── src/
-│   └── task-manager/
+├── scr/
 └── thesis/
-    ├── abs/
-    ├── doc/
-    ├── html/
-    ├── pdf/
-    └── refs/
 ```
 
-## Kế hoạch cài đặt
+## Thiết lập cơ sở dữ liệu
 
-1. Cài đặt PHP, Composer, MySQL và Git.
-2. Tạo project Laravel trong thư mục `src/task-manager`.
-3. Cấu hình file `.env` cho kết nối MySQL.
-4. Thiết kế cơ sở dữ liệu cho người dùng, dự án, công việc, phân công và báo cáo.
-5. Tạo migration, model, controller và giao diện Blade.
-6. Kiểm thử từng chức năng trước khi hoàn thiện báo cáo.
-
-## Cách chạy dự kiến
-
-Sau khi tạo project Laravel trong thư mục `src/task-manager`, có thể chạy theo các bước:
+1. Cấu hình kết nối cơ sở dữ liệu trong `scr/.env`.
+2. Chạy migration và seed dữ liệu mẫu:
 
 ```bash
-cd src/task-manager
-composer install
-cp .env.example .env
-php artisan key:generate
-php artisan migrate
-php artisan serve
+cd scr
+php artisan migrate:fresh --seed
 ```
 
-Sau đó mở trình duyệt tại địa chỉ:
+Nếu chỉ muốn chạy thêm dữ liệu mẫu sau khi đã migrate:
 
-```text
-http://127.0.0.1:8000
+```bash
+cd scr
+php artisan db:seed
 ```
 
-## Quản lý tiến độ
+## Tài khoản demo
 
-- Công việc cần làm được ghi trong `TODO.md`.
-- Báo cáo tiến độ được lưu trong thư mục `progress-report`.
-- Tài liệu đồ án được lưu trong thư mục `thesis`.
-- File liên quan đến cơ sở dữ liệu ban đầu được lưu trong `setup/database`.
+| Vai trò | Email | Mật khẩu |
+| --- | --- | --- |
+| Admin | admin@example.com | password |
+| Manager | manager@example.com | password |
+| Staff | staff@example.com | password |
 
-## Thông tin liên hệ
+## Tệp SQL tham khảo
 
-- Sinh viên thực hiện: Phạm Hoàng Việt
-- Lớp: DX23TT10
-- MSSV: 170123377
-- Định danh repo: vietph080186
+- `setup/database/schema.sql`: cấu trúc bảng cơ sở dữ liệu chính.
+- `setup/database/seed.sql`: dữ liệu mẫu tương ứng với seeder Laravel.
+
+## Trạng thái hiện tại
+
+Đã xây dựng nền tảng cơ sở dữ liệu gồm migration, model, quan hệ Eloquent và dữ liệu mẫu cho hệ thống quản lý giao việc. Các chức năng CRUD và giao diện sẽ được thực hiện ở giai đoạn sau.

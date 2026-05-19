@@ -2,29 +2,32 @@
 
 ## Giai đoạn 1: Chuẩn bị dự án
 
-- [x] Xác định lại tên đề tài chính thức
-- [x] Cập nhật README.md theo đề tài mới
+- [x] Xác định tên đề tài chính thức
+- [x] Cập nhật README.md theo đề tài
 - [x] Tạo cấu trúc thư mục cần thiết
 - [x] Tạo thư mục `setup/database`
 - [x] Cập nhật `.gitignore` cho dự án Laravel/PHP
+- [x] Khởi tạo project Laravel trong thư mục `scr`
 - [ ] Kiểm tra lại yêu cầu đồ án với giảng viên
 
 ## Giai đoạn 2: Phân tích và thiết kế
 
-- [ ] Xác định vai trò người dùng
-- [ ] Phân tích chức năng quản lý người dùng
-- [ ] Phân tích chức năng quản lý dự án hoặc danh mục công việc
-- [ ] Phân tích chức năng giao việc
-- [ ] Phân tích chức năng cập nhật tiến độ và gửi kết quả
-- [ ] Phân tích chức năng báo cáo và thống kê
-- [ ] Thiết kế cơ sở dữ liệu MySQL
+- [x] Xác định vai trò người dùng: Admin, Manager, Staff
+- [x] Thiết kế cơ sở dữ liệu MySQL ban đầu
+- [x] Xác định bảng vai trò, phòng ban, dự án, danh mục công việc, công việc, bình luận, lịch sử trạng thái và thông báo
+- [ ] Phân tích chi tiết chức năng quản lý người dùng
+- [ ] Phân tích chi tiết chức năng quản lý dự án
+- [ ] Phân tích chi tiết chức năng giao việc
+- [ ] Phân tích chi tiết chức năng báo cáo và thống kê
 - [ ] Thiết kế giao diện chính
 
-## Giai đoạn 3: Khởi tạo Laravel
+## Giai đoạn 3: Nền tảng Laravel
 
-- [ ] Tạo project Laravel trong thư mục `src/task-manager`
-- [ ] Cấu hình kết nối MySQL
-- [ ] Tạo migration ban đầu
+- [x] Cấu hình cấu trúc migration ban đầu
+- [x] Cập nhật bảng users với vai trò, phòng ban, họ tên, số điện thoại và trạng thái
+- [x] Tạo model và quan hệ Eloquent
+- [x] Tạo dữ liệu mẫu bằng seeder
+- [x] Tạo tệp SQL tham khảo trong `setup/database`
 - [ ] Tạo layout Blade cơ bản
 - [ ] Cấu hình Bootstrap hoặc CSS đơn giản
 
@@ -32,14 +35,18 @@
 
 - [ ] Xây dựng chức năng đăng nhập và phân quyền cơ bản
 - [ ] Xây dựng quản lý người dùng
-- [ ] Xây dựng quản lý dự án hoặc danh mục công việc
+- [ ] Xây dựng quản lý phòng ban
+- [ ] Xây dựng quản lý dự án
+- [ ] Xây dựng quản lý danh mục công việc
 - [ ] Xây dựng quản lý công việc và phân công
 - [ ] Xây dựng cập nhật trạng thái công việc
-- [ ] Xây dựng gửi kết quả và bình luận
+- [ ] Xây dựng bình luận công việc
+- [ ] Xây dựng thông báo
 - [ ] Xây dựng báo cáo và thống kê cơ bản
 
 ## Giai đoạn 5: Kiểm thử và hoàn thiện
 
+- [ ] Kiểm thử migration và dữ liệu mẫu
 - [ ] Kiểm thử các chức năng chính
 - [ ] Cập nhật báo cáo tiến độ trong `progress-report`
 - [ ] Hoàn thiện tài liệu trong `thesis/doc`
