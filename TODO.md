@@ -16,6 +16,8 @@
 - [x] Viết mã CSS
 - [x] Viết mã JavaScript
 - [x] Thêm phần SVG theo yêu cầu đề tài
+- [x] Thêm điều khiển màu, kích thước, góc xoay và độ dày viền
+- [x] Cải thiện giao diện điều khiển
 - [ ] Kiểm tra lỗi giao diện trên nhiều kích thước màn hình
 - [ ] Kiểm tra chức năng lần cuối trước khi nộp
 

@@ -4,6 +4,8 @@ const sizeRange = document.getElementById("sizeRange");
 const sizeValue = document.getElementById("sizeValue");
 const rotateRange = document.getElementById("rotateRange");
 const rotateValue = document.getElementById("rotateValue");
+const strokeRange = document.getElementById("strokeRange");
+const strokeValue = document.getElementById("strokeValue");
 const resetButton = document.getElementById("resetButton");
 const statusText = document.getElementById("statusText");
 const svgObject = document.getElementById("svgObject");
@@ -34,17 +36,20 @@ let currentShape = "circle";
 let currentColor = "#2563eb";
 let currentSize = 100;
 let currentRotate = 0;
+let currentStroke = 4;
 
 function updateSvg() {
     Object.keys(shapes).forEach((shapeKey) => {
         shapes[shapeKey].element.hidden = shapeKey !== currentShape;
         shapes[shapeKey].element.style.fill = currentColor;
+        shapes[shapeKey].element.style.strokeWidth = currentStroke;
     });
 
     svgObject.setAttribute("transform", `translate(160 160) rotate(${currentRotate}) scale(${currentSize / 100})`);
     sizeValue.textContent = `${currentSize}%`;
     rotateValue.textContent = `${currentRotate}°`;
-    statusText.textContent = `Đang hiển thị ${shapes[currentShape].name} màu ${colorNames[currentColor]}, kích thước ${currentSize}%, xoay ${currentRotate}°.`;
+    strokeValue.textContent = `${currentStroke}px`;
+    statusText.textContent = `Đang hiển thị ${shapes[currentShape].name} màu ${colorNames[currentColor]}, kích thước ${currentSize}%, xoay ${currentRotate}°, viền ${currentStroke}px.`;
 }
 
 shapeSelect.addEventListener("change", () => {
@@ -73,15 +78,22 @@ rotateRange.addEventListener("input", () => {
     updateSvg();
 });
 
+strokeRange.addEventListener("input", () => {
+    currentStroke = Number(strokeRange.value);
+    updateSvg();
+});
+
 resetButton.addEventListener("click", () => {
     currentShape = "circle";
     currentColor = "#2563eb";
     currentSize = 100;
     currentRotate = 0;
+    currentStroke = 4;
 
     shapeSelect.value = currentShape;
     sizeRange.value = currentSize;
     rotateRange.value = currentRotate;
+    strokeRange.value = currentStroke;
     colorButtons.forEach((button) => {
         button.classList.toggle("active", button.dataset.color === currentColor);
     });

@@ -39,6 +39,11 @@ h1 {
     font-size: 40px;
 }
 
+h2 {
+    margin: 0 0 20px;
+    font-size: 22px;
+}
+
 .intro {
     max-width: 580px;
     margin: 12px 0 0;
@@ -132,6 +137,14 @@ select {
     font-size: 15px;
 }
 
+select:focus,
+input[type="range"]:focus,
+.color-button:focus,
+.reset-button:focus {
+    outline: 3px solid #bfdbfe;
+    outline-offset: 2px;
+}
+
 .color-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -184,6 +197,11 @@ input[type="range"] {
 .reset-button:hover,
 .color-button:hover {
     filter: brightness(0.96);
+}
+
+.reset-button:active,
+.color-button:active {
+    transform: translateY(1px);
 }
 
 @media (max-width: 760px) {

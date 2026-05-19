@@ -31,6 +31,8 @@
         </section>
 
         <section class="control-panel" aria-label="Bảng điều khiển">
+            <h2>Bảng điều khiển</h2>
+
             <div class="control-group">
                 <label for="shapeSelect">Hình dạng</label>
                 <select id="shapeSelect">
@@ -58,6 +60,11 @@
             <div class="control-group">
                 <label for="rotateRange">Góc xoay: <span id="rotateValue">0°</span></label>
                 <input id="rotateRange" type="range" min="0" max="360" value="0">
+            </div>
+
+            <div class="control-group">
+                <label for="strokeRange">Độ dày viền: <span id="strokeValue">4px</span></label>
+                <input id="strokeRange" type="range" min="0" max="10" value="4">
             </div>
 
             <button id="resetButton" class="reset-button" type="button">Đặt lại</button>
