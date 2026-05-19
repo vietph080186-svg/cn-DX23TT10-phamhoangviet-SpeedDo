@@ -2,6 +2,8 @@ const shapeSelect = document.getElementById("shapeSelect");
 const colorButtons = document.querySelectorAll(".color-button");
 const sizeRange = document.getElementById("sizeRange");
 const sizeValue = document.getElementById("sizeValue");
+const rotateRange = document.getElementById("rotateRange");
+const rotateValue = document.getElementById("rotateValue");
 const resetButton = document.getElementById("resetButton");
 const statusText = document.getElementById("statusText");
 const svgObject = document.getElementById("svgObject");
@@ -31,6 +33,7 @@ const colorNames = {
 let currentShape = "circle";
 let currentColor = "#2563eb";
 let currentSize = 100;
+let currentRotate = 0;
 
 function updateSvg() {
     Object.keys(shapes).forEach((shapeKey) => {
@@ -38,9 +41,10 @@ function updateSvg() {
         shapes[shapeKey].element.style.fill = currentColor;
     });
 
-    svgObject.setAttribute("transform", `translate(160 160) scale(${currentSize / 100})`);
+    svgObject.setAttribute("transform", `translate(160 160) rotate(${currentRotate}) scale(${currentSize / 100})`);
     sizeValue.textContent = `${currentSize}%`;
-    statusText.textContent = `Đang hiển thị ${shapes[currentShape].name} màu ${colorNames[currentColor]}, kích thước ${currentSize}%.`;
+    rotateValue.textContent = `${currentRotate}°`;
+    statusText.textContent = `Đang hiển thị ${shapes[currentShape].name} màu ${colorNames[currentColor]}, kích thước ${currentSize}%, xoay ${currentRotate}°.`;
 }
 
 shapeSelect.addEventListener("change", () => {
@@ -64,13 +68,20 @@ sizeRange.addEventListener("input", () => {
     updateSvg();
 });
 
+rotateRange.addEventListener("input", () => {
+    currentRotate = Number(rotateRange.value);
+    updateSvg();
+});
+
 resetButton.addEventListener("click", () => {
     currentShape = "circle";
     currentColor = "#2563eb";
     currentSize = 100;
+    currentRotate = 0;
 
     shapeSelect.value = currentShape;
     sizeRange.value = currentSize;
+    rotateRange.value = currentRotate;
     colorButtons.forEach((button) => {
         button.classList.toggle("active", button.dataset.color === currentColor);
     });

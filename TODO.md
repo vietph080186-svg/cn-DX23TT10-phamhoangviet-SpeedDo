@@ -6,7 +6,7 @@
 - [x] Xác định tên đề tài ban đầu
 - [x] Tạo cấu trúc thư mục dự án
 - [x] Cập nhật README.md
-- [x] Tạo AGENTS.md
+- [x] Tạo tài liệu hướng dẫn dự án
 
 ## Giai đoạn 2: Xây dựng chương trình
 

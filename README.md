@@ -10,7 +10,7 @@
 
 ## Mô tả dự án
 
-Xưởng SVG Mini là một ứng dụng web đơn giản dùng để minh họa cách SVG hoạt động trong trang web. Người dùng có thể chọn hình dạng, đổi màu và thay đổi kích thước của đối tượng SVG ngay trên giao diện.
+Xưởng SVG Mini là một ứng dụng web đơn giản dùng để minh họa cách SVG hoạt động trong trang web. Người dùng có thể chọn hình dạng, đổi màu, thay đổi kích thước và xoay đối tượng SVG ngay trên giao diện.
 
 Dự án được xây dựng bằng HTML, CSS, JavaScript và SVG thuần, không dùng framework hoặc thư viện bên ngoài. Mục tiêu là tạo một sản phẩm dễ hiểu, dễ chạy và phù hợp với đồ án học phần.
 
@@ -22,6 +22,7 @@ Phiên bản hiện tại là bản chạy đầu tiên, tập trung vào giao d
 - Chọn hình dạng: hình tròn, hình vuông, hình tam giác.
 - Đổi màu SVG bằng các nút màu.
 - Thay đổi kích thước SVG bằng thanh kéo.
+- Xoay đối tượng SVG bằng thanh kéo.
 - Đặt lại trạng thái ban đầu.
 - Giao diện tiếng Việt, đơn giản và thân thiện với người mới học.
 
@@ -37,7 +38,6 @@ Phiên bản hiện tại là bản chạy đầu tiên, tập trung vào giao d
 
 ```text
 .
-├── AGENTS.md
 ├── README.md
 ├── TODO.md
 ├── index.html
@@ -60,7 +60,7 @@ Phiên bản hiện tại là bản chạy đầu tiên, tập trung vào giao d
 1. Clone hoặc tải repo về máy.
 2. Mở thư mục dự án bằng Visual Studio Code.
 3. Mở file `index.html` bằng trình duyệt.
-4. Thử chọn hình dạng, đổi màu, kéo kích thước và bấm nút đặt lại.
+4. Thử chọn hình dạng, đổi màu, kéo kích thước, xoay hình và bấm nút đặt lại.
 
 Không cần cài đặt thêm thư viện vì dự án chỉ dùng HTML, CSS và JavaScript thuần.
 

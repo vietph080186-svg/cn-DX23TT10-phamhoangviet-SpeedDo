@@ -11,7 +11,7 @@
         <div>
             <p class="eyebrow">Đồ án học phần SVG</p>
             <h1>Xưởng SVG Mini</h1>
-            <p class="intro">Thử thay đổi hình dạng, màu sắc và kích thước của đối tượng SVG.</p>
+            <p class="intro">Thử thay đổi hình dạng, màu sắc, kích thước và góc xoay của đối tượng SVG.</p>
         </div>
     </header>
 
@@ -19,7 +19,7 @@
         <section class="preview-panel" aria-label="Khu vực hiển thị SVG">
             <svg class="svg-stage" viewBox="0 0 320 320" role="img" aria-labelledby="svgTitle svgDesc">
                 <title id="svgTitle">Hình SVG tương tác</title>
-                <desc id="svgDesc">Người dùng có thể đổi màu, kích thước và hình dạng.</desc>
+                <desc id="svgDesc">Người dùng có thể đổi màu, kích thước, góc xoay và hình dạng.</desc>
                 <rect class="stage-background" x="16" y="16" width="288" height="288" rx="24"></rect>
                 <g id="svgObject" class="svg-object" transform="translate(160 160)">
                     <circle id="mainCircle" r="72"></circle>
@@ -53,6 +53,11 @@
             <div class="control-group">
                 <label for="sizeRange">Kích thước: <span id="sizeValue">100%</span></label>
                 <input id="sizeRange" type="range" min="60" max="140" value="100">
+            </div>
+
+            <div class="control-group">
+                <label for="rotateRange">Góc xoay: <span id="rotateValue">0°</span></label>
+                <input id="rotateRange" type="range" min="0" max="360" value="0">
             </div>
 
             <button id="resetButton" class="reset-button" type="button">Đặt lại</button>
