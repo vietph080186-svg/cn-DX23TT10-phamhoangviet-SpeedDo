@@ -1,4 +1,4 @@
-# Đồ án học phần: Xưởng SVG Mini
+# Đồ án học phần: Xây dựng Hệ thống quản lý giao việc
 
 ## Thông tin sinh viên
 
@@ -10,30 +10,29 @@
 
 ## Mô tả dự án
 
-Xưởng SVG Mini là một ứng dụng web đơn giản dùng để minh họa cách SVG hoạt động trong trang web. Người dùng có thể chọn hình dạng, đổi màu, thay đổi kích thước, xoay đối tượng và điều chỉnh độ dày viền của SVG ngay trên giao diện.
+Hệ thống quản lý giao việc là ứng dụng web hỗ trợ tổ chức quản lý công việc, phân công nhiệm vụ và theo dõi tiến độ thực hiện. Người quản lý có thể tạo công việc, giao cho nhân viên, theo dõi trạng thái, xem kết quả và thống kê. Người dùng có thể cập nhật trạng thái công việc, gửi kết quả và trao đổi thông tin liên quan đến công việc.
 
-Dự án được xây dựng bằng HTML, CSS, JavaScript và SVG thuần, không dùng framework hoặc thư viện bên ngoài. Mục tiêu là tạo một sản phẩm dễ hiểu, dễ chạy và phù hợp với đồ án học phần.
+Dự án đang ở giai đoạn chuẩn bị cho phát triển bằng Laravel. Repo hiện tập trung vào cấu trúc thư mục, kế hoạch thực hiện, tài liệu và cấu hình ban đầu. Mã nguồn Laravel dự kiến đặt trong thư mục `src/task-manager`.
 
-Phiên bản hiện tại là bản chạy đầu tiên, tập trung vào giao diện cơ bản và thao tác trực tiếp với SVG.
+## Công nghệ dự kiến
 
-## Chức năng
-
-- Hiển thị đối tượng SVG ở khu vực trung tâm.
-- Chọn hình dạng: hình tròn, hình vuông, hình tam giác.
-- Đổi màu SVG bằng các nút màu.
-- Thay đổi kích thước SVG bằng thanh kéo.
-- Xoay đối tượng SVG bằng thanh kéo.
-- Điều chỉnh độ dày viền của SVG.
-- Đặt lại trạng thái ban đầu.
-- Giao diện tiếng Việt, đơn giản và thân thiện với người mới học.
-
-## Công nghệ sử dụng
-
-- HTML
-- CSS
-- JavaScript
-- SVG
+- PHP
+- MySQL
+- Laravel
+- Blade
+- Bootstrap hoặc CSS đơn giản
+- JavaScript khi cần thiết
 - Git và GitHub
+
+## Chức năng chính
+
+- Quản lý người dùng.
+- Quản lý danh mục công việc hoặc dự án.
+- Quản lý giao việc.
+- Cập nhật tiến độ công việc.
+- Gửi kết quả thực hiện.
+- Bình luận hoặc trao đổi thông tin theo công việc.
+- Báo cáo và thống kê.
 
 ## Cấu trúc thư mục
 
@@ -41,13 +40,13 @@ Phiên bản hiện tại là bản chạy đầu tiên, tập trung vào giao d
 .
 ├── README.md
 ├── TODO.md
-├── index.html
+├── .gitignore
 ├── assets/
 ├── progress-report/
 ├── setup/
+│   └── database/
 ├── src/
-│   ├── main.js
-│   └── style.css
+│   └── task-manager/
 └── thesis/
     ├── abs/
     ├── doc/
@@ -56,21 +55,40 @@ Phiên bản hiện tại là bản chạy đầu tiên, tập trung vào giao d
     └── refs/
 ```
 
-## Cách chạy dự án
+## Kế hoạch cài đặt
 
-1. Clone hoặc tải repo về máy.
-2. Mở thư mục dự án bằng Visual Studio Code.
-3. Mở file `index.html` bằng trình duyệt.
-4. Thử chọn hình dạng, đổi màu, kéo kích thước, xoay hình, chỉnh độ dày viền và bấm nút đặt lại.
+1. Cài đặt PHP, Composer, MySQL và Git.
+2. Tạo project Laravel trong thư mục `src/task-manager`.
+3. Cấu hình file `.env` cho kết nối MySQL.
+4. Thiết kế cơ sở dữ liệu cho người dùng, dự án, công việc, phân công và báo cáo.
+5. Tạo migration, model, controller và giao diện Blade.
+6. Kiểm thử từng chức năng trước khi hoàn thiện báo cáo.
 
-Không cần cài đặt thêm thư viện vì dự án chỉ dùng HTML, CSS và JavaScript thuần.
+## Cách chạy dự kiến
+
+Sau khi tạo project Laravel trong thư mục `src/task-manager`, có thể chạy theo các bước:
+
+```bash
+cd src/task-manager
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate
+php artisan serve
+```
+
+Sau đó mở trình duyệt tại địa chỉ:
+
+```text
+http://127.0.0.1:8000
+```
 
 ## Quản lý tiến độ
 
 - Công việc cần làm được ghi trong `TODO.md`.
 - Báo cáo tiến độ được lưu trong thư mục `progress-report`.
 - Tài liệu đồ án được lưu trong thư mục `thesis`.
-- Mỗi thay đổi quan trọng nên được commit lên GitHub.
+- File liên quan đến cơ sở dữ liệu ban đầu được lưu trong `setup/database`.
 
 ## Thông tin liên hệ
 

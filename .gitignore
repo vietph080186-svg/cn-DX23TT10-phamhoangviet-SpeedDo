@@ -3,28 +3,63 @@
 Thumbs.db
 Desktop.ini
 
-# VSCode local settings
+# Editor settings
 .vscode/
+.idea/
 
 # Logs
 *.log
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
 pnpm-debug.log*
-
-# Dependencies
-node_modules/
-
-# Build output
-dist/
-build/
-out/
 
 # Environment files
 .env
 .env.*
 !.env.example
+src/.env
+src/.env.*
+!src/.env.example
+src/task-manager/.env
+src/task-manager/.env.*
+!src/task-manager/.env.example
+
+# PHP and Laravel dependencies
+vendor/
+src/vendor/
+src/task-manager/vendor/
+node_modules/
+src/node_modules/
+src/task-manager/node_modules/
+
+# Laravel generated files
+src/storage/*.key
+src/storage/framework/cache/*
+src/storage/framework/sessions/*
+src/storage/framework/views/*
+src/storage/logs/*
+src/bootstrap/cache/*
+src/task-manager/storage/*.key
+src/task-manager/storage/framework/cache/*
+src/task-manager/storage/framework/sessions/*
+src/task-manager/storage/framework/views/*
+src/task-manager/storage/logs/*
+src/task-manager/bootstrap/cache/*
+
+# Build output
+dist/
+build/
+out/
+src/public/build/
+src/public/hot
+src/task-manager/public/build/
+src/task-manager/public/hot
+
+# Testing and coverage
+.phpunit.result.cache
+coverage/
+src/coverage/
+src/task-manager/coverage/
 
 # Temporary files
 *.tmp
