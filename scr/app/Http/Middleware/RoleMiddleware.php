@@ -8,11 +8,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 class RoleMiddleware
 {
-    public function handle(Request $request, Closure $next, string $role): Response
+    public function handle(Request $request, Closure $next, string ...$roles): Response
     {
         $userRole = strtolower($request->user()?->role?->name ?? '');
+        $allowedRoles = array_map('strtolower', $roles);
 
-        if ($userRole !== strtolower($role)) {
+        if (! in_array($userRole, $allowedRoles, true)) {
             abort(403, 'Bạn không có quyền truy cập trang này.');
         }
 

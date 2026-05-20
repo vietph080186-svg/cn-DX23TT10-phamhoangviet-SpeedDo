@@ -15,7 +15,6 @@
 - [x] Xác định vai trò người dùng: Admin, Manager, Staff
 - [x] Thiết kế cơ sở dữ liệu MySQL ban đầu
 - [x] Xác định bảng vai trò, phòng ban, dự án, danh mục công việc, công việc, bình luận, lịch sử trạng thái và thông báo
-- [ ] Phân tích chi tiết chức năng quản lý dự án
 - [ ] Phân tích chi tiết chức năng giao việc
 - [ ] Phân tích chi tiết chức năng báo cáo và thống kê
 - [ ] Thiết kế giao diện chính
@@ -40,8 +39,8 @@
 - [x] Xây dựng dashboard Staff cơ bản
 - [x] Xây dựng quản lý người dùng
 - [x] Xây dựng quản lý phòng ban
-- [ ] Xây dựng quản lý dự án
-- [ ] Xây dựng quản lý danh mục công việc
+- [x] Xây dựng quản lý dự án
+- [x] Xây dựng quản lý danh mục công việc
 - [ ] Xây dựng quản lý công việc và phân công
 - [ ] Xây dựng cập nhật trạng thái công việc
 - [ ] Xây dựng bình luận công việc
@@ -54,6 +53,8 @@
 - [ ] Kiểm thử đăng nhập, đăng xuất và dashboard theo vai trò
 - [ ] Kiểm thử quản lý người dùng
 - [ ] Kiểm thử quản lý phòng ban
+- [ ] Kiểm thử quản lý dự án
+- [ ] Kiểm thử quản lý danh mục công việc
 - [ ] Kiểm thử các chức năng chính
 - [ ] Cập nhật báo cáo tiến độ trong `progress-report`
 - [ ] Hoàn thiện tài liệu trong `thesis/doc`

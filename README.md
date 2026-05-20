@@ -31,7 +31,9 @@ Dự án sử dụng Laravel. Mã nguồn chính hiện nằm trong thư mục `
 - Dashboard Staff hiển thị thống kê công việc cá nhân.
 - Admin quản lý người dùng: danh sách, thêm, xem, sửa, xóa, tìm kiếm và lọc.
 - Admin quản lý phòng ban: danh sách, thêm, xem, sửa, xóa, tìm kiếm và lọc.
-- Chặn Manager và Staff truy cập trang quản lý người dùng, phòng ban.
+- Admin và Manager quản lý dự án: danh sách, thêm, xem, sửa, xóa, tìm kiếm và lọc.
+- Admin và Manager quản lý danh mục công việc: danh sách, thêm, xem, sửa, xóa, tìm kiếm và lọc.
+- Staff không được truy cập các trang quản lý người dùng, phòng ban, dự án và danh mục công việc.
 - Nền tảng cơ sở dữ liệu cho vai trò, phòng ban, dự án, danh mục công việc, công việc, bình luận, lịch sử trạng thái và thông báo.
 
 ## Thiết lập cơ sở dữ liệu
@@ -65,10 +67,11 @@ http://127.0.0.1:8000/login
 | Manager | manager@example.com | password |
 | Staff | staff@example.com | password |
 
-Chỉ tài khoản Admin được truy cập các trang:
+Phân quyền chính:
 
-- `http://127.0.0.1:8000/admin/users`
-- `http://127.0.0.1:8000/admin/departments`
+- Admin: truy cập dashboard, người dùng, phòng ban, dự án, danh mục công việc.
+- Manager: truy cập dashboard, dự án, danh mục công việc.
+- Staff: chỉ truy cập dashboard cá nhân.
 
 ## Tệp SQL tham khảo
 
@@ -77,4 +80,4 @@ Chỉ tài khoản Admin được truy cập các trang:
 
 ## Trạng thái hiện tại
 
-Đã hoàn thành nền tảng cơ sở dữ liệu, đăng nhập, đăng xuất, dashboard theo vai trò, quản lý người dùng và quản lý phòng ban. Các chức năng CRUD công việc sẽ được thực hiện ở giai đoạn sau.
+Đã hoàn thành nền tảng cơ sở dữ liệu, đăng nhập, đăng xuất, dashboard theo vai trò, quản lý người dùng, quản lý phòng ban, quản lý dự án và quản lý danh mục công việc. Các chức năng CRUD công việc sẽ được thực hiện ở giai đoạn sau.

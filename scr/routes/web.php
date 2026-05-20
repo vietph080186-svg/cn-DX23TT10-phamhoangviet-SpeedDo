@@ -4,6 +4,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TaskCategoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,5 +28,10 @@ Route::middleware('auth')->group(function () {
     Route::middleware('role:Admin')->prefix('admin')->name('admin.')->group(function () {
         Route::resource('departments', DepartmentController::class);
         Route::resource('users', UserController::class);
+    });
+
+    Route::middleware('role:Admin,Manager')->group(function () {
+        Route::resource('projects', ProjectController::class);
+        Route::resource('task-categories', TaskCategoryController::class);
     });
 });

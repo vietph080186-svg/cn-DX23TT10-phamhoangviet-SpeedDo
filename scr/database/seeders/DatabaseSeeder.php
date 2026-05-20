@@ -86,16 +86,22 @@ class DatabaseSeeder extends Seeder
         $analysisCategory = TaskCategory::create([
             'name' => 'Phân tích',
             'description' => 'Công việc phân tích yêu cầu và quy trình.',
+            'color' => '#2563eb',
+            'status' => 'active',
         ]);
 
         $developmentCategory = TaskCategory::create([
             'name' => 'Phát triển',
             'description' => 'Công việc lập trình và cấu hình hệ thống.',
+            'color' => '#16a34a',
+            'status' => 'active',
         ]);
 
         $testingCategory = TaskCategory::create([
             'name' => 'Kiểm thử',
             'description' => 'Công việc kiểm tra chất lượng và nghiệm thu.',
+            'color' => '#f59e0b',
+            'status' => 'active',
         ]);
 
         Task::create([

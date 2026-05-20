@@ -9,6 +9,8 @@ class TaskCategory extends Model
     protected $fillable = [
         'name',
         'description',
+        'color',
+        'status',
     ];
 
     public function tasks()

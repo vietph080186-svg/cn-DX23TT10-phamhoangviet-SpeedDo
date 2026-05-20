@@ -39,7 +39,7 @@ CREATE TABLE projects (
     description TEXT NULL,
     start_date DATE NULL,
     end_date DATE NULL,
-    status ENUM('active', 'completed', 'paused') NOT NULL DEFAULT 'active',
+    status ENUM('planning', 'active', 'paused', 'completed', 'cancelled') NOT NULL DEFAULT 'planning',
     created_at TIMESTAMP NULL,
     updated_at TIMESTAMP NULL
 );
@@ -48,6 +48,8 @@ CREATE TABLE task_categories (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL UNIQUE,
     description VARCHAR(255) NULL,
+    color VARCHAR(255) NULL,
+    status ENUM('active', 'inactive') NOT NULL DEFAULT 'active',
     created_at TIMESTAMP NULL,
     updated_at TIMESTAMP NULL
 );

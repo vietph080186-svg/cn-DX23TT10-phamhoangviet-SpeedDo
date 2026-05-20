@@ -17,10 +17,10 @@ INSERT INTO projects (id, name, description, start_date, end_date, status, creat
 (1, 'Triển khai hệ thống giao việc nội bộ', 'Xây dựng nền tảng quản lý và theo dõi công việc cho doanh nghiệp.', '2026-05-01', '2026-06-30', 'active', NOW(), NOW()),
 (2, 'Cập nhật website công ty', 'Cải thiện nội dung, giao diện và quy trình đăng tin.', '2026-05-10', '2026-06-15', 'active', NOW(), NOW());
 
-INSERT INTO task_categories (id, name, description, created_at, updated_at) VALUES
-(1, 'Phân tích', 'Công việc phân tích yêu cầu và quy trình.', NOW(), NOW()),
-(2, 'Phát triển', 'Công việc lập trình và cấu hình hệ thống.', NOW(), NOW()),
-(3, 'Kiểm thử', 'Công việc kiểm tra chất lượng và nghiệm thu.', NOW(), NOW());
+INSERT INTO task_categories (id, name, description, color, status, created_at, updated_at) VALUES
+(1, 'Phân tích', 'Công việc phân tích yêu cầu và quy trình.', '#2563eb', 'active', NOW(), NOW()),
+(2, 'Phát triển', 'Công việc lập trình và cấu hình hệ thống.', '#16a34a', 'active', NOW(), NOW()),
+(3, 'Kiểm thử', 'Công việc kiểm tra chất lượng và nghiệm thu.', '#f59e0b', 'active', NOW(), NOW());
 
 INSERT INTO tasks (id, project_id, task_category_id, creator_id, assignee_id, title, description, status, priority, due_date, created_at, updated_at) VALUES
 (1, 1, 1, 2, 3, 'Khảo sát quy trình giao việc hiện tại', 'Thu thập thông tin về cách giao việc và theo dõi tiến độ.', 'in_progress', 'high', '2026-05-25', NOW(), NOW()),
