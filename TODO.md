@@ -48,9 +48,11 @@
 - [x] Ghi lịch sử trạng thái công việc
 - [x] Tạo thông báo cơ bản trong cơ sở dữ liệu
 - [x] Xây dựng bảng Kanban cơ bản
+- [x] Xây dựng báo cáo và thống kê cơ bản
 - [ ] Xây dựng Kanban kéo thả
 - [ ] Xây dựng giao diện thông báo
-- [ ] Xây dựng báo cáo và thống kê cơ bản
+- [ ] Xây dựng xuất báo cáo nâng cao
+- [ ] Xây dựng thông báo thời gian thực
 
 ## Giai đoạn 5: Kiểm thử và hoàn thiện
 
@@ -62,6 +64,7 @@
 - [ ] Kiểm thử quản lý danh mục công việc
 - [ ] Kiểm thử quy trình giao việc
 - [ ] Kiểm thử bảng Kanban cơ bản
+- [ ] Kiểm thử báo cáo và thống kê cơ bản
 - [ ] Kiểm thử bình luận và lịch sử trạng thái
 - [ ] Cập nhật báo cáo tiến độ trong `progress-report`
 - [ ] Hoàn thiện tài liệu trong `thesis/doc`

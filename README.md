@@ -35,12 +35,15 @@ Dự án sử dụng Laravel. Mã nguồn chính hiện nằm trong thư mục `
 - Ghi lịch sử thay đổi trạng thái công việc.
 - Tạo thông báo cơ bản khi giao việc, gửi duyệt, hoàn thành hoặc yêu cầu sửa lại.
 - Bảng Kanban công việc theo trạng thái, có bộ lọc và nút chuyển trạng thái.
+- Báo cáo và thống kê công việc theo trạng thái, mức ưu tiên, dự án, người dùng và phòng ban.
+- Báo cáo hiệu suất nhân viên và tiến độ dự án bằng bảng và thanh tiến độ đơn giản.
 
 ## Phân quyền chính
 
 - Admin: quản lý toàn bộ người dùng, phòng ban, dự án, danh mục, công việc và bảng Kanban.
 - Manager: quản lý dự án, danh mục, công việc do mình tạo hoặc được giao, và bảng Kanban liên quan.
 - Staff: chỉ xem công việc được giao, cập nhật tiến độ, gửi kết quả, bình luận và xem Kanban cá nhân.
+- Báo cáo được lọc theo quyền: Admin xem toàn hệ thống, Manager xem dữ liệu liên quan, Staff xem dữ liệu cá nhân.
 
 ## Luồng xử lý công việc
 
@@ -78,6 +81,20 @@ http://127.0.0.1:8000/login
 | Manager | manager@example.com | password |
 | Staff | staff@example.com | password |
 
+## Đường dẫn báo cáo
+
+- `http://127.0.0.1:8000/reports`: báo cáo tổng quan.
+- `http://127.0.0.1:8000/reports/tasks`: thống kê công việc.
+- `http://127.0.0.1:8000/reports/users`: hiệu suất nhân viên.
+- `http://127.0.0.1:8000/reports/projects`: thống kê dự án.
+
+## Kiểm thử báo cáo
+
+1. Đăng nhập bằng tài khoản Admin, Manager và Staff.
+2. Mở từng đường dẫn báo cáo.
+3. Kiểm tra số liệu hiển thị theo đúng quyền.
+4. Thử lọc theo ngày, dự án, phòng ban, người được giao, trạng thái và mức ưu tiên.
+
 ## Tệp SQL tham khảo
 
 - `setup/database/schema.sql`: cấu trúc bảng cơ sở dữ liệu chính.
@@ -85,4 +102,4 @@ http://127.0.0.1:8000/login
 
 ## Trạng thái hiện tại
 
-Đã hoàn thành nền tảng cơ sở dữ liệu, đăng nhập, dashboard theo vai trò, quản lý danh mục nền tảng, quy trình giao việc cơ bản và Kanban dạng nút thao tác. Báo cáo nâng cao, giao diện thông báo và Kanban kéo thả sẽ được thực hiện ở giai đoạn sau.
+Đã hoàn thành nền tảng cơ sở dữ liệu, đăng nhập, dashboard theo vai trò, quản lý danh mục nền tảng, quy trình giao việc cơ bản, Kanban dạng nút thao tác và báo cáo thống kê cơ bản. Xuất báo cáo nâng cao, giao diện thông báo và Kanban kéo thả sẽ được thực hiện ở giai đoạn sau.

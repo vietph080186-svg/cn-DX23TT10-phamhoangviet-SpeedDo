@@ -26,6 +26,20 @@
                 <p class="card-title">Đã hoàn thành</p>
                 <p class="card-number">{{ $completedTasks }}</p>
             </article>
+
+            <article class="card">
+                <p class="card-title">Chờ duyệt</p>
+                <p class="card-number">{{ $reviewTasks }}</p>
+            </article>
+
+            <article class="card">
+                <p class="card-title">Quá hạn</p>
+                <p class="card-number">{{ $overdueTasks }}</p>
+            </article>
         </section>
+
+        <p style="margin-top: 16px;">
+            <a class="button" href="{{ route('reports.index') }}">Xem báo cáo cá nhân</a>
+        </p>
     </main>
 @endsection

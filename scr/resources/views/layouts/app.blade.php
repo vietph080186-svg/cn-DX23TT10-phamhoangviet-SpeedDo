@@ -47,6 +47,9 @@
         .kanban-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; margin-bottom: 12px; }
         .kanban-card.overdue { border-color: #fb7185; background: #fff1f2; }
         .muted { color: #64748b; font-size: 14px; }
+        .progress { width: 100%; height: 12px; background: #e2e8f0; border-radius: 999px; overflow: hidden; }
+        .progress-bar { height: 100%; background: #2563eb; }
+        .report-nav { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0; }
         @media (max-width: 800px) {
             .kanban-board { display: block; overflow-x: visible; }
             .kanban-column { margin-bottom: 16px; }
@@ -58,6 +61,7 @@
         <nav class="navbar">
             <div class="nav-left">
                 <a class="brand" href="{{ route('dashboard') }}">Bảng điều khiển</a>
+                <a class="nav-link" href="{{ route('reports.index') }}">Báo cáo</a>
                 <a class="nav-link" href="{{ route('kanban.index') }}">Kanban</a>
                 @if (in_array(strtolower(Auth::user()->role?->name ?? ''), ['admin', 'manager'], true))
                     <a class="nav-link" href="{{ route('tasks.index') }}">Công việc</a>

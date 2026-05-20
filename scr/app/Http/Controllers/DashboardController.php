@@ -32,6 +32,8 @@ class DashboardController extends Controller
             'totalDepartments' => Department::count(),
             'totalProjects' => Project::count(),
             'totalTasks' => Task::count(),
+            'completedTasks' => Task::where('status', 'completed')->count(),
+            'overdueTasks' => Task::whereDate('due_date', '<', today())->where('status', '!=', 'completed')->count(),
         ]);
     }
 
@@ -48,6 +50,7 @@ class DashboardController extends Controller
             'assignedTasks' => Task::where('assignee_id', $user->id)->count(),
             'reviewTasks' => Task::where('creator_id', $user->id)->where('status', 'review')->count(),
             'completedTasks' => Task::where('creator_id', $user->id)->where('status', 'completed')->count(),
+            'overdueTasks' => Task::where('creator_id', $user->id)->whereDate('due_date', '<', today())->where('status', '!=', 'completed')->count(),
         ]);
     }
 
@@ -64,6 +67,8 @@ class DashboardController extends Controller
             'newTasks' => Task::where('assignee_id', $user->id)->where('status', 'new')->count(),
             'inProgressTasks' => Task::where('assignee_id', $user->id)->where('status', 'in_progress')->count(),
             'completedTasks' => Task::where('assignee_id', $user->id)->where('status', 'completed')->count(),
+            'reviewTasks' => Task::where('assignee_id', $user->id)->where('status', 'review')->count(),
+            'overdueTasks' => Task::where('assignee_id', $user->id)->whereDate('due_date', '<', today())->where('status', '!=', 'completed')->count(),
         ]);
     }
 

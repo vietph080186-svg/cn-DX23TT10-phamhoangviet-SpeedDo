@@ -6,6 +6,7 @@ use App\Http\Controllers\KanbanController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TaskCategoryController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/kanban', [KanbanController::class, 'index'])->name('kanban.index');
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports.index');
+    Route::get('/reports/tasks', [ReportController::class, 'tasks'])->name('reports.tasks');
+    Route::get('/reports/users', [ReportController::class, 'users'])->name('reports.users');
+    Route::get('/reports/projects', [ReportController::class, 'projects'])->name('reports.projects');
     Route::get('/admin/dashboard', [DashboardController::class, 'admin'])->name('dashboard.admin');
     Route::get('/manager/dashboard', [DashboardController::class, 'manager'])->name('dashboard.manager');
     Route::get('/staff/dashboard', [DashboardController::class, 'staff'])->name('dashboard.staff');
