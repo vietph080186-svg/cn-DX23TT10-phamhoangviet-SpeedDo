@@ -29,6 +29,9 @@ Dự án sử dụng Laravel. Mã nguồn chính hiện nằm trong thư mục `
 - Dashboard Admin hiển thị tổng người dùng, phòng ban, dự án và công việc.
 - Dashboard Manager hiển thị thống kê công việc đã tạo và được giao.
 - Dashboard Staff hiển thị thống kê công việc cá nhân.
+- Admin quản lý người dùng: danh sách, thêm, xem, sửa, xóa, tìm kiếm và lọc.
+- Admin quản lý phòng ban: danh sách, thêm, xem, sửa, xóa, tìm kiếm và lọc.
+- Chặn Manager và Staff truy cập trang quản lý người dùng, phòng ban.
 - Nền tảng cơ sở dữ liệu cho vai trò, phòng ban, dự án, danh mục công việc, công việc, bình luận, lịch sử trạng thái và thông báo.
 
 ## Thiết lập cơ sở dữ liệu
@@ -62,7 +65,10 @@ http://127.0.0.1:8000/login
 | Manager | manager@example.com | password |
 | Staff | staff@example.com | password |
 
-Sau khi đăng nhập, hệ thống tự chuyển người dùng đến dashboard đúng với vai trò.
+Chỉ tài khoản Admin được truy cập các trang:
+
+- `http://127.0.0.1:8000/admin/users`
+- `http://127.0.0.1:8000/admin/departments`
 
 ## Tệp SQL tham khảo
 
@@ -71,4 +77,4 @@ Sau khi đăng nhập, hệ thống tự chuyển người dùng đến dashboar
 
 ## Trạng thái hiện tại
 
-Đã hoàn thành nền tảng cơ sở dữ liệu, đăng nhập, đăng xuất và dashboard cơ bản theo vai trò. Các chức năng CRUD chi tiết sẽ được thực hiện ở giai đoạn sau.
+Đã hoàn thành nền tảng cơ sở dữ liệu, đăng nhập, đăng xuất, dashboard theo vai trò, quản lý người dùng và quản lý phòng ban. Các chức năng CRUD công việc sẽ được thực hiện ở giai đoạn sau.

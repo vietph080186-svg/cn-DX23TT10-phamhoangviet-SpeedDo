@@ -30,9 +30,9 @@ class DatabaseSeeder extends Seeder
             'description' => 'Nhân viên thực hiện công việc',
         ]);
 
-        $itDepartment = Department::create(['name' => 'Phòng Công nghệ thông tin']);
-        $salesDepartment = Department::create(['name' => 'Phòng Kinh doanh']);
-        $marketingDepartment = Department::create(['name' => 'Phòng Marketing']);
+        $itDepartment = Department::create(['name' => 'Phòng Công nghệ thông tin', 'status' => 'active']);
+        $salesDepartment = Department::create(['name' => 'Phòng Kinh doanh', 'status' => 'active']);
+        $marketingDepartment = Department::create(['name' => 'Phòng Marketing', 'status' => 'active']);
 
         $admin = User::create([
             'role_id' => $adminRole->id,

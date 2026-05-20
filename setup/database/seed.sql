@@ -3,10 +3,10 @@ INSERT INTO roles (id, name, description, created_at, updated_at) VALUES
 (2, 'Manager', 'Quản lý dự án và giao việc', NOW(), NOW()),
 (3, 'Staff', 'Nhân viên thực hiện công việc', NOW(), NOW());
 
-INSERT INTO departments (id, name, description, created_at, updated_at) VALUES
-(1, 'Phòng Công nghệ thông tin', NULL, NOW(), NOW()),
-(2, 'Phòng Kinh doanh', NULL, NOW(), NOW()),
-(3, 'Phòng Marketing', NULL, NOW(), NOW());
+INSERT INTO departments (id, name, description, status, created_at, updated_at) VALUES
+(1, 'Phòng Công nghệ thông tin', NULL, 'active', NOW(), NOW()),
+(2, 'Phòng Kinh doanh', NULL, 'active', NOW(), NOW()),
+(3, 'Phòng Marketing', NULL, 'active', NOW(), NOW());
 
 INSERT INTO users (id, role_id, department_id, name, full_name, email, phone, status, password, created_at, updated_at) VALUES
 (1, 1, 1, 'admin', 'Quản trị viên', 'admin@example.com', '0901000001', 'active', '$2y$10$p2Xfbl6FoECPIZkZWGStke64dwuMbrKV9slF6c4bAJIWzhnogQKHG', NOW(), NOW()),
