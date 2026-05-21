@@ -51,6 +51,13 @@
         .progress-bar { height: 100%; background: #2563eb; }
         .report-nav { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0; }
         .badge { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #dc2626; color: #fff; font-size: 12px; font-weight: 700; }
+        body:not(.has-active-overlay).modal-open,
+        body:not(.has-active-overlay).loading,
+        body:not(.has-active-overlay).disabled {
+            overflow: auto !important;
+            padding-right: 0 !important;
+            pointer-events: auto !important;
+        }
         body:not(.has-active-overlay) .modal-backdrop,
         body:not(.has-active-overlay) .backdrop,
         body:not(.has-active-overlay) .loading-overlay,
@@ -104,16 +111,28 @@
     @yield('content')
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        function clearStaleOverlays() {
+            if (document.body.classList.contains('has-active-overlay')) {
+                return;
+            }
+
             document.body.classList.remove('modal-open', 'loading', 'disabled');
+            document.documentElement.classList.remove('modal-open', 'loading', 'disabled');
 
             document
                 .querySelectorAll('.modal-backdrop, .backdrop, .loading-overlay, .page-overlay')
                 .forEach(function (element) {
-                    if (!element.closest('.modal, [role="dialog"], [data-overlay-active="true"]')) {
+                    if (!element.closest('[data-overlay-active="true"]')) {
                         element.remove();
                     }
                 });
+        }
+
+        document.addEventListener('DOMContentLoaded', clearStaleOverlays);
+        window.addEventListener('pageshow', clearStaleOverlays);
+
+        document.addEventListener('submit', function () {
+            window.setTimeout(clearStaleOverlays, 1500);
         });
     </script>
 </body>
