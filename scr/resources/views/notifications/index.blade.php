@@ -9,7 +9,7 @@
             <form method="POST" action="{{ route('notifications.read-all') }}">
                 @csrf
                 @method('PATCH')
-                <button class="button" type="submit">Đánh dấu tất cả đã đọc</button>
+                <button class="button" type="submit"><span class="button-icon">@include('shared.icon', ['name' => 'check'])</span> Đánh dấu tất cả đã đọc</button>
             </form>
         </div>
 
@@ -36,14 +36,14 @@
                         <td>{{ $notification->is_read ? 'Đã đọc' : 'Chưa đọc' }}</td>
                         <td class="actions">
                             @if ($notification->link)
-                                <a class="button light" href="{{ url($notification->link) }}">Xem</a>
+                                <a class="button light" href="{{ url($notification->link) }}"><span class="button-icon">@include('shared.icon', ['name' => 'eye'])</span> Xem</a>
                             @endif
 
                             @if (! $notification->is_read)
                                 <form method="POST" action="{{ route('notifications.read', $notification) }}">
                                     @csrf
                                     @method('PATCH')
-                                    <button class="button secondary" type="submit">Đánh dấu đã đọc</button>
+                                    <button class="button secondary" type="submit"><span class="button-icon">@include('shared.icon', ['name' => 'check'])</span> Đánh dấu đã đọc</button>
                                 </form>
                             @endif
                         </td>

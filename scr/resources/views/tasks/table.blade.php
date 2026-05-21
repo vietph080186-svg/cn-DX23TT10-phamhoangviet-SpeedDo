@@ -25,9 +25,9 @@
                 <td>{{ $isOverdue ? 'Quá hạn' : ($statuses[$task->status] ?? $task->status) }}</td>
                 <td>{{ $task->due_date?->format('d/m/Y') ?? 'Chưa có' }}</td>
                 <td class="actions">
-                    <a class="button light" href="{{ route($detailRoute, $task) }}">Xem</a>
+                    <a class="button light" href="{{ route($detailRoute, $task) }}"><span class="button-icon">@include('shared.icon', ['name' => 'eye'])</span> Xem</a>
                     @if (Route::has('tasks.edit') && in_array(strtolower(Auth::user()->role?->name ?? ''), ['admin', 'manager'], true))
-                        <a class="button secondary" href="{{ route('tasks.edit', $task) }}">Sửa</a>
+                        <a class="button secondary" href="{{ route('tasks.edit', $task) }}"><span class="button-icon">@include('shared.icon', ['name' => 'edit'])</span> Sửa</a>
                     @endif
                 </td>
             </tr>
