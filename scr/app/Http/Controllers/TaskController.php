@@ -91,6 +91,14 @@ class TaskController extends Controller
 
     public function show(Task $task)
     {
+        if ($this->isStaff()) {
+            abort_unless($task->assignee_id === Auth::id(), 403, 'Bạn không có quyền xem công việc này.');
+
+            if (request()->routeIs('tasks.show')) {
+                return redirect()->route('my-tasks.show', $task);
+            }
+        }
+
         $this->authorizeView($task);
 
         $task->load(['project', 'category', 'assignee', 'creator', 'comments.user', 'statusLogs.user', 'statusLogs.changer']);
@@ -341,7 +349,10 @@ class TaskController extends Controller
             return;
         }
 
-        $link = $userId === $task->assignee_id
+        $user = User::with('role')->find($userId);
+        $roleName = strtolower($user?->role?->name ?? '');
+
+        $link = $roleName === 'staff'
             ? route('my-tasks.show', $task, false)
             : route('tasks.show', $task, false);
 

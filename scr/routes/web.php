@@ -45,9 +45,10 @@ Route::middleware('auth')->group(function () {
     Route::middleware('role:Admin,Manager')->group(function () {
         Route::resource('projects', ProjectController::class);
         Route::resource('task-categories', TaskCategoryController::class);
-        Route::resource('tasks', TaskController::class);
+        Route::resource('tasks', TaskController::class)->except(['show']);
     });
 
+    Route::get('/tasks/{task}', [TaskController::class, 'show'])->name('tasks.show');
     Route::get('/my-tasks', [TaskController::class, 'myTasks'])->name('my-tasks.index');
     Route::get('/my-tasks/{task}', [TaskController::class, 'show'])->name('my-tasks.show');
     Route::patch('/tasks/{task}/status', [TaskController::class, 'updateStatus'])->name('tasks.status');

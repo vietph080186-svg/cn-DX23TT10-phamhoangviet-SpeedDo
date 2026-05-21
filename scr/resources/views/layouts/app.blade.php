@@ -51,6 +51,13 @@
         .progress-bar { height: 100%; background: #2563eb; }
         .report-nav { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0; }
         .badge { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 999px; background: #dc2626; color: #fff; font-size: 12px; font-weight: 700; }
+        body:not(.has-active-overlay) .modal-backdrop,
+        body:not(.has-active-overlay) .backdrop,
+        body:not(.has-active-overlay) .loading-overlay,
+        body:not(.has-active-overlay) .page-overlay {
+            display: none !important;
+            pointer-events: none !important;
+        }
         @media (max-width: 800px) {
             .kanban-board { display: block; overflow-x: visible; }
             .kanban-column { margin-bottom: 16px; }
@@ -95,5 +102,19 @@
     @endauth
 
     @yield('content')
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.body.classList.remove('modal-open', 'loading', 'disabled');
+
+            document
+                .querySelectorAll('.modal-backdrop, .backdrop, .loading-overlay, .page-overlay')
+                .forEach(function (element) {
+                    if (!element.closest('.modal, [role="dialog"], [data-overlay-active="true"]')) {
+                        element.remove();
+                    }
+                });
+        });
+    </script>
 </body>
 </html>

@@ -26,7 +26,7 @@
                         $total = $projectTasks->count();
                         $completed = $projectTasks->where('status', 'completed')->count();
                         $rate = $total > 0 ? round($completed / $total * 100) : 0;
-                        $overdue = $projectTasks->filter(fn ($task) => $task->due_date && $task->due_date->isPast() && $task->status !== 'completed')->count();
+                        $overdue = $projectTasks->filter(fn ($task) => $task->due_date && $task->due_date->lt(today()) && $task->status !== 'completed')->count();
                     @endphp
                     <tr>
                         <td>{{ $project->name }}</td>

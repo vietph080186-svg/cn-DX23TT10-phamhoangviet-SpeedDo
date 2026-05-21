@@ -14,7 +14,7 @@
     <tbody>
         @forelse ($tasks as $task)
             @php
-                $isOverdue = $task->due_date && $task->due_date->isPast() && ! in_array($task->status, ['completed'], true);
+                $isOverdue = $task->due_date && $task->due_date->lt(today()) && ! in_array($task->status, ['completed'], true);
             @endphp
             <tr style="{{ $isOverdue ? 'background:#fff1f2;' : '' }}">
                 <td>{{ $task->title }}</td>

@@ -120,7 +120,7 @@ class DatabaseSeeder extends Seeder
             'project_id' => $internalProject->id,
             'task_category_id' => $developmentCategory->id,
             'creator_id' => $admin->id,
-            'assignee_id' => $manager->id,
+            'assignee_id' => $staff->id,
             'title' => 'Thiết kế cơ sở dữ liệu ban đầu',
             'description' => 'Xác định bảng, khóa ngoại và dữ liệu mẫu cho hệ thống.',
             'status' => 'review',

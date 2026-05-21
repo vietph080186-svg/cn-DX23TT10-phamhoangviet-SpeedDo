@@ -71,7 +71,7 @@ class KanbanController extends Controller
 
     private function displayStatus(Task $task): string
     {
-        if ($task->due_date && $task->due_date->isPast() && $task->status !== 'completed') {
+        if ($task->due_date && $task->due_date->lt(today()) && $task->status !== 'completed') {
             return 'overdue';
         }
 

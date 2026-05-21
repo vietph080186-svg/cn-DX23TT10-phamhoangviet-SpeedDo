@@ -28,7 +28,7 @@
                         $total = $userTasks->count();
                         $completed = $userTasks->where('status', 'completed')->count();
                         $rate = $total > 0 ? round($completed / $total * 100) : 0;
-                        $overdue = $userTasks->filter(fn ($task) => $task->due_date && $task->due_date->isPast() && $task->status !== 'completed')->count();
+                        $overdue = $userTasks->filter(fn ($task) => $task->due_date && $task->due_date->lt(today()) && $task->status !== 'completed')->count();
                     @endphp
                     <tr>
                         <td>{{ $staff->full_name }}</td>

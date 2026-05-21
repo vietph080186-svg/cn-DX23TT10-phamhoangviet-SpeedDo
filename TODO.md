@@ -56,6 +56,7 @@
 
 ## Giai đoạn 5: Kiểm thử và hoàn thiện
 
+- [x] Tạo checklist kiểm thử thủ công tổng thể trong `progress-report/test-checklist.md`
 - [ ] Kiểm thử migration và dữ liệu mẫu
 - [ ] Kiểm thử đăng nhập, đăng xuất và dashboard theo vai trò
 - [ ] Kiểm thử quản lý người dùng

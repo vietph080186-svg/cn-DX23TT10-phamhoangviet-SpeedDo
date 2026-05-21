@@ -157,7 +157,7 @@ class ReportController extends Controller
 
     private function overdueCount($tasks): int
     {
-        return $tasks->filter(fn ($task) => $task->due_date && $task->due_date->isPast() && $task->status !== 'completed')->count();
+        return $tasks->filter(fn ($task) => $task->due_date && $task->due_date->lt(today()) && $task->status !== 'completed')->count();
     }
 
     private function baseData(Request $request, array $extra = []): array

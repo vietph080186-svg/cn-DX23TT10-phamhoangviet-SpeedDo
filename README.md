@@ -83,12 +83,38 @@ http://127.0.0.1:8000/login
 | Manager | manager@example.com | password |
 | Staff | staff@example.com | password |
 
+## Đường dẫn chính
+
+- `http://127.0.0.1:8000/login`: đăng nhập.
+- `http://127.0.0.1:8000/dashboard`: bảng điều khiển theo vai trò.
+- `http://127.0.0.1:8000/admin/users`: quản lý người dùng dành cho Admin.
+- `http://127.0.0.1:8000/admin/departments`: quản lý phòng ban dành cho Admin.
+- `http://127.0.0.1:8000/projects`: quản lý dự án dành cho Admin và Manager.
+- `http://127.0.0.1:8000/task-categories`: quản lý danh mục công việc dành cho Admin và Manager.
+- `http://127.0.0.1:8000/tasks`: quản lý công việc dành cho Admin và Manager.
+- `http://127.0.0.1:8000/my-tasks`: công việc của người đang đăng nhập.
+- `http://127.0.0.1:8000/kanban`: bảng Kanban.
+- `http://127.0.0.1:8000/notifications`: thông báo trong hệ thống.
+
 ## Đường dẫn báo cáo
 
 - `http://127.0.0.1:8000/reports`: báo cáo tổng quan.
 - `http://127.0.0.1:8000/reports/tasks`: thống kê công việc.
 - `http://127.0.0.1:8000/reports/users`: hiệu suất nhân viên.
 - `http://127.0.0.1:8000/reports/projects`: thống kê dự án.
+
+## Kiểm thử thủ công
+
+Checklist kiểm thử thủ công nằm tại `progress-report/test-checklist.md`.
+
+Nội dung kiểm thử chính:
+
+- Kiểm thử môi trường, cài đặt sạch, migration và dữ liệu mẫu.
+- Kiểm thử đăng nhập, đăng xuất và dashboard theo vai trò.
+- Kiểm thử phân quyền Guest, Admin, Manager, Staff.
+- Kiểm thử quản lý người dùng, phòng ban, dự án, danh mục và công việc.
+- Kiểm thử quy trình trạng thái công việc, bình luận, Kanban, báo cáo và thông báo.
+- Kiểm thử bảo mật cơ bản: CSRF, truy cập URL trực tiếp, quyền xem dữ liệu và validate form.
 
 ## Kiểm thử thông báo
 
