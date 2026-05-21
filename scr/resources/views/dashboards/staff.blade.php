@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard Staff')
+@section('title', 'Bảng điều khiển nhân viên')
 
 @section('content')
     <main class="container">
-        <h1 class="page-title">Dashboard Staff</h1>
+        <h1 class="page-title">Bảng điều khiển nhân viên</h1>
 
         <section class="grid">
             <article class="card">
