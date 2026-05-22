@@ -43,14 +43,14 @@ class ReportController extends Controller
 
     public function tasks(Request $request)
     {
-        $tasks = $this->filteredTasks($request)->with(['project', 'assignee.department'])->get();
+        $tasks = $this->filteredTasks($request)->with(['project', 'department', 'assignee.department'])->get();
 
         return view('reports.tasks', $this->baseData($request, [
             'statusCounts' => $this->countsByStatus($tasks),
             'priorityCounts' => $this->countsByPriority($tasks),
             'projectCounts' => $tasks->groupBy('project.name')->map->count(),
             'assigneeCounts' => $tasks->groupBy('assignee.full_name')->map->count(),
-            'departmentCounts' => $tasks->groupBy('assignee.department.name')->map->count(),
+            'departmentCounts' => $tasks->groupBy(fn ($task) => $task->department?->name ?? $task->assignee?->department?->name)->map->count(),
             'overdueCount' => $this->overdueCount($tasks),
             'totalTasks' => $tasks->count(),
         ]));
@@ -58,7 +58,7 @@ class ReportController extends Controller
 
     public function users(Request $request)
     {
-        $tasks = $this->filteredTasks($request)->with(['assignee.department'])->get();
+        $tasks = $this->filteredTasks($request)->with(['department', 'assignee.department'])->get();
         $staffIds = $tasks->pluck('assignee_id')->filter()->unique();
         $staffUsers = User::with('department')->whereIn('id', $staffIds)->orderBy('full_name')->get();
 
@@ -100,7 +100,13 @@ class ReportController extends Controller
             })
             ->when($request->priority, fn ($query, $priority) => $query->where('priority', $priority))
             ->when($request->department_id, function ($query, $departmentId) {
-                $query->whereHas('assignee', fn ($userQuery) => $userQuery->where('department_id', $departmentId));
+                $query->where(function ($subQuery) use ($departmentId) {
+                    $subQuery->where('department_id', $departmentId)
+                        ->orWhere(function ($fallbackQuery) use ($departmentId) {
+                            $fallbackQuery->whereNull('department_id')
+                                ->whereHas('assignee', fn ($userQuery) => $userQuery->where('department_id', $departmentId));
+                        });
+                });
             });
     }
 

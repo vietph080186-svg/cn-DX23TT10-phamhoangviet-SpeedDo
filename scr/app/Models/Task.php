@@ -11,6 +11,7 @@ class Task extends Model
         'task_category_id',
         'creator_id',
         'assignee_id',
+        'department_id',
         'title',
         'description',
         'status',
@@ -49,6 +50,11 @@ class Task extends Model
     public function assignee()
     {
         return $this->belongsTo(User::class, 'assignee_id');
+    }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
     }
 
     public function comments()

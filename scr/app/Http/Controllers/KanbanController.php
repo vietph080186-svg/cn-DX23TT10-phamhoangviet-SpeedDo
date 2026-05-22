@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use App\Models\Project;
 use App\Models\Role;
 use App\Models\Task;
@@ -29,7 +30,7 @@ class KanbanController extends Controller
 
     public function index(Request $request)
     {
-        $tasks = Task::with(['project', 'assignee'])
+        $tasks = Task::with(['project', 'department', 'assignee.department'])
             ->when($this->isManager(), function ($query) {
                 $query->where(function ($subQuery) {
                     $subQuery->where('creator_id', Auth::id())
@@ -39,6 +40,15 @@ class KanbanController extends Controller
             ->when($this->isStaff(), fn ($query) => $query->where('assignee_id', Auth::id()))
             ->when($request->project_id, fn ($query, $projectId) => $query->where('project_id', $projectId))
             ->when($request->assignee_id, fn ($query, $assigneeId) => $query->where('assignee_id', $assigneeId))
+            ->when($request->department_id, function ($query, $departmentId) {
+                $query->where(function ($subQuery) use ($departmentId) {
+                    $subQuery->where('department_id', $departmentId)
+                        ->orWhere(function ($fallbackQuery) use ($departmentId) {
+                            $fallbackQuery->whereNull('department_id')
+                                ->whereHas('assignee', fn ($userQuery) => $userQuery->where('department_id', $departmentId));
+                        });
+                });
+            })
             ->when($request->priority, fn ($query, $priority) => $query->where('priority', $priority))
             ->when($request->status, function ($query, $status) {
                 if ($status !== 'overdue') {
@@ -65,6 +75,7 @@ class KanbanController extends Controller
             'statuses' => $this->statuses,
             'priorities' => $this->priorities,
             'projects' => Project::orderBy('name')->get(),
+            'departments' => Department::orderBy('name')->get(),
             'staffUsers' => User::where('role_id', $staffRoleId)->orderBy('full_name')->get(),
         ]);
     }

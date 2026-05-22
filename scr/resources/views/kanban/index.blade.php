@@ -35,6 +35,16 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="department_id">Phòng ban</label>
+                    <select id="department_id" name="department_id">
+                        <option value="">Tất cả</option>
+                        @foreach ($departments as $department)
+                            <option value="{{ $department->id }}" @selected((string) request('department_id') === (string) $department->id)>{{ $department->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label for="priority">Ưu tiên</label>
                     <select id="priority" name="priority">
                         <option value="">Tất cả</option>
@@ -93,6 +103,7 @@
                             <h3 style="margin:0 0 8px;">{{ $task->title }}</h3>
                             <p class="muted">Dự án: {{ $task->project?->name ?? 'Chưa có' }}</p>
                             <p class="muted">Người được giao: {{ $task->assignee?->full_name ?? 'Chưa có' }}</p>
+                            <p class="muted">Phòng ban: {{ $task->department?->name ?? $task->assignee?->department?->name ?? 'Chưa chọn' }}</p>
                             <p class="muted">Ưu tiên: {{ $priorities[$task->priority] ?? $task->priority }}</p>
                             <p class="muted">Hạn: {{ $task->due_date?->format('d/m/Y') ?? 'Chưa có' }}</p>
                             <p class="muted">Trạng thái: {{ $isOverdue ? 'Quá hạn' : ($statuses[$task->status] ?? $task->status) }}</p>

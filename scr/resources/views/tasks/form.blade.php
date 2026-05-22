@@ -30,11 +30,22 @@
     </div>
 
     <div class="form-group">
+        <label for="department_id">Phòng ban được giao</label>
+        <select id="department_id" name="department_id">
+            <option value="">Chưa chọn</option>
+            @foreach ($departments as $department)
+                <option value="{{ $department->id }}" @selected((string) old('department_id', $task->department_id ?? '') === (string) $department->id)>{{ $department->name }}</option>
+            @endforeach
+        </select>
+        @error('department_id') <p class="error">{{ $message }}</p> @enderror
+    </div>
+
+    <div class="form-group">
         <label for="assignee_id">Người được giao</label>
         <select id="assignee_id" name="assignee_id" required>
             <option value="">Chọn nhân viên</option>
             @foreach ($staffUsers as $staff)
-                <option value="{{ $staff->id }}" @selected((string) old('assignee_id', $task->assignee_id ?? '') === (string) $staff->id)>{{ $staff->full_name }}</option>
+                <option value="{{ $staff->id }}" @selected((string) old('assignee_id', $task->assignee_id ?? '') === (string) $staff->id)>{{ $staff->full_name }}{{ $staff->department ? ' - '.$staff->department->name : '' }}</option>
             @endforeach
         </select>
         @error('assignee_id') <p class="error">{{ $message }}</p> @enderror

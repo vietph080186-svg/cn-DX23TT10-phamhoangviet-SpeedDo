@@ -4,9 +4,9 @@ INSERT INTO roles (id, name, description, created_at, updated_at) VALUES
 (3, 'Staff', 'Nhân viên thực hiện công việc', NOW(), NOW());
 
 INSERT INTO departments (id, name, description, status, created_at, updated_at) VALUES
-(1, 'Phòng Công nghệ thông tin', NULL, 'active', NOW(), NOW()),
-(2, 'Phòng Kinh doanh', NULL, 'active', NOW(), NOW()),
-(3, 'Phòng Marketing', NULL, 'active', NOW(), NOW());
+(1, 'Phòng Công nghệ thông tin', 'Quản trị hệ thống, hỗ trợ kỹ thuật và phát triển các công cụ nội bộ.', 'active', NOW(), NOW()),
+(2, 'Phòng Kinh doanh', 'Tìm kiếm khách hàng, chăm sóc cơ hội bán hàng và theo dõi doanh thu.', 'active', NOW(), NOW()),
+(3, 'Phòng Marketing', 'Lập kế hoạch truyền thông, quảng bá sản phẩm và xây dựng hình ảnh công ty.', 'active', NOW(), NOW());
 
 INSERT INTO users (id, role_id, department_id, name, full_name, email, phone, status, password, created_at, updated_at) VALUES
 (1, 1, 1, 'admin', 'Quản trị viên', 'admin@example.com', '0901000001', 'active', '$2y$10$p2Xfbl6FoECPIZkZWGStke64dwuMbrKV9slF6c4bAJIWzhnogQKHG', NOW(), NOW()),
@@ -22,7 +22,7 @@ INSERT INTO task_categories (id, name, description, color, status, created_at, u
 (2, 'Phát triển', 'Công việc lập trình và cấu hình hệ thống.', '#16a34a', 'active', NOW(), NOW()),
 (3, 'Kiểm thử', 'Công việc kiểm tra chất lượng và nghiệm thu.', '#f59e0b', 'active', NOW(), NOW());
 
-INSERT INTO tasks (id, project_id, task_category_id, creator_id, assignee_id, title, description, status, priority, due_date, created_at, updated_at) VALUES
-(1, 1, 1, 2, 3, 'Khảo sát quy trình giao việc hiện tại', 'Thu thập thông tin về cách giao việc và theo dõi tiến độ.', 'in_progress', 'high', '2026-05-25', NOW(), NOW()),
-(2, 1, 2, 1, 2, 'Thiết kế cơ sở dữ liệu ban đầu', 'Xác định bảng, khóa ngoại và dữ liệu mẫu cho hệ thống.', 'review', 'urgent', '2026-05-22', NOW(), NOW()),
-(3, 2, 3, 2, 3, 'Kiểm tra nội dung trang giới thiệu', 'Rà soát lỗi chính tả và thông tin hiển thị trên website.', 'new', 'medium', '2026-05-28', NOW(), NOW());
+INSERT INTO tasks (id, project_id, task_category_id, creator_id, assignee_id, department_id, title, description, status, priority, due_date, created_at, updated_at) VALUES
+(1, 1, 1, 2, 3, 3, 'Khảo sát quy trình giao việc hiện tại', 'Thu thập thông tin về cách giao việc và theo dõi tiến độ.', 'in_progress', 'high', '2026-05-25', NOW(), NOW()),
+(2, 1, 2, 1, 3, 3, 'Thiết kế cơ sở dữ liệu ban đầu', 'Xác định bảng, khóa ngoại và dữ liệu mẫu cho hệ thống.', 'review', 'urgent', '2026-05-22', NOW(), NOW()),
+(3, 2, 3, 2, 3, 3, 'Kiểm tra nội dung trang giới thiệu', 'Rà soát lỗi chính tả và thông tin hiển thị trên website.', 'new', 'medium', '2026-05-28', NOW(), NOW());

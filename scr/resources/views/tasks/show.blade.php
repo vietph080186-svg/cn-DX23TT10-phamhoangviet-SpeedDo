@@ -29,6 +29,7 @@
             <p><strong>Danh mục:</strong> {{ $task->category?->name ?? 'Chưa phân loại' }}</p>
             <p><strong>Người tạo:</strong> {{ $task->creator?->full_name }}</p>
             <p><strong>Người được giao:</strong> {{ $task->assignee?->full_name }}</p>
+            <p><strong>Phòng ban được giao:</strong> {{ $task->department?->name ?? $task->assignee?->department?->name ?? 'Chưa chọn' }}</p>
             <p><strong>Mức ưu tiên:</strong> {{ $priorities[$task->priority] ?? $task->priority }}</p>
             <p><strong>Trạng thái:</strong> {{ $statuses[$task->status] ?? $task->status }}</p>
             <p><strong>Ngày bắt đầu:</strong> {{ $task->start_date?->format('d/m/Y') ?? 'Chưa có' }}</p>

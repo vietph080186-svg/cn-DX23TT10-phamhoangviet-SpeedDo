@@ -36,6 +36,15 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="department_id">Phòng ban</label>
+                    <select id="department_id" name="department_id">
+                        <option value="">Tất cả</option>
+                        @foreach ($departments as $department)
+                            <option value="{{ $department->id }}" @selected((string) request('department_id') === (string) $department->id)>{{ $department->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="status">Trạng thái</label>
                     <select id="status" name="status">
                         <option value="">Tất cả</option>

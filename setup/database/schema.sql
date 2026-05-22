@@ -60,6 +60,7 @@ CREATE TABLE tasks (
     task_category_id BIGINT UNSIGNED NULL,
     creator_id BIGINT UNSIGNED NULL,
     assignee_id BIGINT UNSIGNED NULL,
+    department_id BIGINT UNSIGNED NULL,
     title VARCHAR(255) NOT NULL,
     description TEXT NULL,
     status ENUM('new', 'in_progress', 'review', 'completed', 'overdue', 'revision') NOT NULL DEFAULT 'new',
@@ -74,7 +75,8 @@ CREATE TABLE tasks (
     CONSTRAINT tasks_project_id_foreign FOREIGN KEY (project_id) REFERENCES projects(id) ON DELETE SET NULL,
     CONSTRAINT tasks_task_category_id_foreign FOREIGN KEY (task_category_id) REFERENCES task_categories(id) ON DELETE SET NULL,
     CONSTRAINT tasks_creator_id_foreign FOREIGN KEY (creator_id) REFERENCES users(id) ON DELETE SET NULL,
-    CONSTRAINT tasks_assignee_id_foreign FOREIGN KEY (assignee_id) REFERENCES users(id) ON DELETE SET NULL
+    CONSTRAINT tasks_assignee_id_foreign FOREIGN KEY (assignee_id) REFERENCES users(id) ON DELETE SET NULL,
+    CONSTRAINT tasks_department_id_foreign FOREIGN KEY (department_id) REFERENCES departments(id) ON DELETE SET NULL
 );
 
 CREATE TABLE task_comments (

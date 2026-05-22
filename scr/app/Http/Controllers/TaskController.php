@@ -9,10 +9,12 @@ use App\Models\TaskCategory;
 use App\Models\TaskComment;
 use App\Models\TaskStatusLog;
 use App\Models\User;
+use App\Models\Department;
 use App\Services\NotificationService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 
 class TaskController extends Controller
 {
@@ -40,7 +42,7 @@ class TaskController extends Controller
     {
         abort_if($this->isStaff(), 403, 'Bạn không có quyền truy cập trang này.');
 
-        $tasks = Task::with(['project', 'category', 'assignee'])
+        $tasks = Task::with(['project', 'category', 'department', 'assignee.department'])
             ->when($this->isManager(), function ($query) {
                 $query->where(function ($subQuery) {
                     $subQuery->where('creator_id', Auth::id())
@@ -52,6 +54,15 @@ class TaskController extends Controller
             })
             ->when($request->project_id, fn ($query, $projectId) => $query->where('project_id', $projectId))
             ->when($request->assignee_id, fn ($query, $assigneeId) => $query->where('assignee_id', $assigneeId))
+            ->when($request->department_id, function ($query, $departmentId) {
+                $query->where(function ($subQuery) use ($departmentId) {
+                    $subQuery->where('department_id', $departmentId)
+                        ->orWhere(function ($fallbackQuery) use ($departmentId) {
+                            $fallbackQuery->whereNull('department_id')
+                                ->whereHas('assignee', fn ($userQuery) => $userQuery->where('department_id', $departmentId));
+                        });
+                });
+            })
             ->when($request->status, fn ($query, $status) => $query->where('status', $status))
             ->when($request->priority, fn ($query, $priority) => $query->where('priority', $priority))
             ->orderByRaw('due_date IS NULL, due_date ASC')
@@ -101,7 +112,7 @@ class TaskController extends Controller
 
         $this->authorizeView($task);
 
-        $task->load(['project', 'category', 'assignee', 'creator', 'comments.user', 'statusLogs.user', 'statusLogs.changer']);
+        $task->load(['project', 'category', 'department', 'assignee.department', 'creator', 'comments.user', 'statusLogs.user', 'statusLogs.changer']);
 
         return view('tasks.show', [
             'task' => $task,
@@ -161,7 +172,7 @@ class TaskController extends Controller
 
     public function myTasks()
     {
-        $tasks = Task::with(['project', 'category'])
+        $tasks = Task::with(['project', 'category', 'department', 'assignee.department'])
             ->where('assignee_id', Auth::id())
             ->orderByRaw('due_date IS NULL, due_date ASC')
             ->paginate(10);
@@ -233,11 +244,12 @@ class TaskController extends Controller
     {
         $staffRoleId = Role::where('name', 'Staff')->value('id');
 
-        return $request->validate([
+        $data = $request->validate([
             'title' => ['required', 'max:255'],
             'description' => ['nullable'],
             'project_id' => ['required', 'exists:projects,id'],
             'task_category_id' => ['nullable', 'exists:task_categories,id'],
+            'department_id' => ['nullable', 'exists:departments,id'],
             'assignee_id' => ['required', 'exists:users,id', Rule::exists('users', 'id')->where('role_id', $staffRoleId)],
             'priority' => ['required', Rule::in(array_keys($this->priorities))],
             'status' => ['required', Rule::in(array_keys($this->statuses))],
@@ -248,6 +260,7 @@ class TaskController extends Controller
         ], [
             'title.required' => 'Vui lòng nhập tiêu đề công việc.',
             'project_id.required' => 'Vui lòng chọn dự án.',
+            'department_id.exists' => 'Phòng ban được giao không hợp lệ.',
             'assignee_id.required' => 'Vui lòng chọn người được giao.',
             'assignee_id.exists' => 'Người được giao phải là nhân viên.',
             'priority.required' => 'Vui lòng chọn mức ưu tiên.',
@@ -256,6 +269,18 @@ class TaskController extends Controller
             'due_date.after_or_equal' => 'Hạn hoàn thành phải sau hoặc bằng ngày bắt đầu.',
             'result_link.url' => 'Liên kết kết quả không đúng định dạng.',
         ]);
+
+        if (! empty($data['department_id']) && ! empty($data['assignee_id'])) {
+            $assignee = User::find($data['assignee_id']);
+
+            if ((string) $assignee?->department_id !== (string) $data['department_id']) {
+                throw ValidationException::withMessages([
+                    'assignee_id' => 'Người được giao phải thuộc phòng ban đã chọn.',
+                ]);
+            }
+        }
+
+        return $data;
     }
 
     private function formData(array $extra = []): array
@@ -265,7 +290,8 @@ class TaskController extends Controller
         return array_merge([
             'projects' => Project::orderBy('name')->get(),
             'categories' => TaskCategory::orderBy('name')->get(),
-            'staffUsers' => User::where('role_id', $staffRoleId)->orderBy('full_name')->get(),
+            'departments' => Department::orderBy('name')->get(),
+            'staffUsers' => User::with('department')->where('role_id', $staffRoleId)->orderBy('full_name')->get(),
         ], $extra);
     }
 

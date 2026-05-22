@@ -5,6 +5,7 @@
             <th>Dự án</th>
             <th>Danh mục</th>
             <th>Người được giao</th>
+            <th>Phòng ban</th>
             <th>Ưu tiên</th>
             <th>Trạng thái</th>
             <th>Hạn hoàn thành</th>
@@ -15,12 +16,14 @@
         @forelse ($tasks as $task)
             @php
                 $isOverdue = $task->due_date && $task->due_date->lt(today()) && ! in_array($task->status, ['completed'], true);
+                $departmentName = $task->department?->name ?? $task->assignee?->department?->name ?? 'Chưa chọn';
             @endphp
             <tr style="{{ $isOverdue ? 'background:#fff1f2;' : '' }}">
                 <td>{{ $task->title }}</td>
                 <td>{{ $task->project?->name }}</td>
                 <td>{{ $task->category?->name ?? 'Chưa phân loại' }}</td>
                 <td>{{ $task->assignee?->full_name }}</td>
+                <td>{{ $departmentName }}</td>
                 <td>{{ $priorities[$task->priority] ?? $task->priority }}</td>
                 <td>{{ $isOverdue ? 'Quá hạn' : ($statuses[$task->status] ?? $task->status) }}</td>
                 <td>{{ $task->due_date?->format('d/m/Y') ?? 'Chưa có' }}</td>
@@ -33,7 +36,7 @@
             </tr>
         @empty
             <tr>
-                <td colspan="8">Chưa có công việc phù hợp.</td>
+                <td colspan="9">Chưa có công việc phù hợp.</td>
             </tr>
         @endforelse
     </tbody>
