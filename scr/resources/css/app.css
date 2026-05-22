@@ -119,13 +119,25 @@ tbody tr:hover { background: #f1f7ff; }
 .feature-header h2 { margin: 0; color: var(--text-dark); font-size: 16px; font-weight: 700; }
 .feature-header p { margin: 4px 0 0; color: var(--text-muted); font-size: 12px; line-height: 1.4; }
 .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
-.feature-card { display: flex; flex-direction: column; align-items: flex-start; min-height: 156px; padding: 14px; border: 1px solid var(--border); border-radius: 12px; background: #ffffff; color: var(--text-dark); box-shadow: var(--shadow); transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease; }
-.feature-card:hover { border-color: var(--primary-blue); box-shadow: 0 8px 18px rgba(15, 23, 42, .08); transform: translateY(-2px); }
-.feature-icon { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; flex: 0 0 auto; margin-bottom: 11px; border-radius: 14px; background: var(--light-blue); color: var(--primary-blue); border: 1px solid #cfe4ff; }
+.feature-card { --feature-color: var(--primary-blue); display: flex; flex-direction: column; align-items: flex-start; min-height: 156px; padding: 14px; border: 1px solid var(--border); border-radius: 12px; background: #ffffff; color: var(--text-dark); box-shadow: var(--shadow); transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease; }
+.feature-card:hover { border-color: var(--feature-color); box-shadow: 0 7px 16px rgba(15, 23, 42, .08); transform: translateY(-1px); }
+.feature-icon { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; flex: 0 0 auto; margin-bottom: 11px; border-radius: 14px; background: var(--feature-icon-bg, var(--light-blue)); color: var(--feature-color); border: 1px solid var(--feature-icon-border, #cfe4ff); }
 .feature-icon .icon { width: 27px; height: 27px; }
 .feature-title { display: block; margin-bottom: 5px; color: var(--text-dark); font-size: 14px; font-weight: 700; line-height: 1.3; }
 .feature-description { display: block; flex: 1; color: var(--text-muted); font-size: 12px; line-height: 1.45; }
-.feature-action { display: inline-flex; align-items: center; margin-top: 10px; color: var(--primary-blue); font-size: 12px; font-weight: 700; }
+.feature-action { display: inline-flex; align-items: center; margin-top: 10px; color: var(--feature-color); font-size: 12px; font-weight: 700; }
+.feature-card-blue, .feature-icon-blue { --feature-color: #1d75d8; --feature-icon-bg: #e8f2ff; --feature-icon-border: #cfe4ff; }
+.feature-card-indigo, .feature-icon-indigo { --feature-color: #4f46e5; --feature-icon-bg: #eef2ff; --feature-icon-border: #dbe3ff; }
+.feature-card-cyan, .feature-icon-cyan { --feature-color: #0891b2; --feature-icon-bg: #ecfeff; --feature-icon-border: #c7f2f6; }
+.feature-card-green, .feature-icon-green { --feature-color: #16a34a; --feature-icon-bg: #ecfdf5; --feature-icon-border: #c8f2dc; }
+.feature-card-teal, .feature-icon-teal { --feature-color: #0f766e; --feature-icon-bg: #f0fdfa; --feature-icon-border: #c8f3ec; }
+.feature-card-purple, .feature-icon-purple { --feature-color: #7c3aed; --feature-icon-bg: #f5f3ff; --feature-icon-border: #e5ddff; }
+.feature-card-orange, .feature-icon-orange { --feature-color: #ea580c; --feature-icon-bg: #fff7ed; --feature-icon-border: #fed7aa; }
+.feature-card-amber, .feature-icon-amber { --feature-color: #d97706; --feature-icon-bg: #fffbeb; --feature-icon-border: #fde68a; }
+.feature-card-red, .feature-icon-red { --feature-color: #dc2626; --feature-icon-bg: #fef2f2; --feature-icon-border: #fecaca; }
+.feature-card-lime, .feature-icon-lime { --feature-color: #65a30d; --feature-icon-bg: #f7fee7; --feature-icon-border: #d9f99d; }
+.feature-card-violet, .feature-icon-violet { --feature-color: #8b5cf6; --feature-icon-bg: #f5f3ff; --feature-icon-border: #ddd6fe; }
+.feature-card-sky, .feature-icon-sky { --feature-color: #0284c7; --feature-icon-bg: #f0f9ff; --feature-icon-border: #bae6fd; }
 body:not(.has-active-overlay).modal-open,
 body:not(.has-active-overlay).loading,
 body:not(.has-active-overlay).disabled {
