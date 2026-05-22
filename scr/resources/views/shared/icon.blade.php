@@ -20,6 +20,18 @@
         @case('tasks')
             <path d="M9 6h11v2H9V6ZM4 5.5 2.8 6.7 6 10l5-5-1.2-1.2L6 7.6 4 5.5ZM9 11h11v2H9v-2Zm0 5h11v2H9v-2ZM4 15.5l-1.2 1.2L6 20l5-5-1.2-1.2L6 17.6l-2-2.1Z" />
             @break
+        @case('assign')
+            <path d="M5 4h11v2H5v14h11v-2h2v4H3V4h2Zm3 5h8v2H8V9Zm0 4h6v2H8v-2Zm10.6-4.8 1.4 1.4-6.8 6.8-3.2-3.2 1.4-1.4 1.8 1.8 5.4-5.4Z" />
+            @break
+        @case('progress')
+            <path d="M4 18h16v2H2V4h2v14Zm2-2V9h3v7H6Zm5 0V6h3v10h-3Zm5 0v-5h3v5h-3Zm-9-4h10v2H7v-2Z" />
+            @break
+        @case('approval')
+            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.2 13.6-3.4-3.4 1.4-1.4 2 2 4.8-4.8L17 9.4l-6.2 6.2Z" />
+            @break
+        @case('send')
+            <path d="M3 4 22 12 3 20v-6l12-2-12-2V4Zm2 3v1.4l10.5 1.8L5 7Zm0 8.6V17l10.5-3.2L5 15.6Z" />
+            @break
         @case('user-task')
             <path d="M9 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-3.4 0-6 1.7-6 4v1h9.5a6 6 0 0 1-.5-2.4c0-.9.2-1.8.6-2.6H9Zm8.6 1.2-2.5 2.5-1.1-1.1-1.2 1.2 2.3 2.3 3.7-3.7-1.2-1.2Z" />
             @break

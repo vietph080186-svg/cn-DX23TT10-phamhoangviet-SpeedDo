@@ -111,14 +111,18 @@
         .badge { display: inline-flex; align-items: center; justify-content: center; min-width: 18px; height: 18px; padding: 0 6px; border-radius: 4px; background: var(--danger); color: #ffffff; font-size: 11px; font-weight: 600; }
         .section-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 16px 0 8px; }
         .section-header h2 { margin: 0; color: var(--text-dark); font-size: 16px; font-weight: 600; }
-        .shortcut-section { margin-top: 16px; }
-        .shortcut-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 10px; }
-        .shortcut-card { display: flex; gap: 12px; align-items: flex-start; min-height: 84px; padding: 13px; border: 1px solid var(--border); border-left: 3px solid var(--primary-blue); border-radius: 6px; background: linear-gradient(180deg, #ffffff, #fbfdff); color: var(--text-dark); box-shadow: var(--shadow); }
-        .shortcut-card:hover { border-color: #b8cce3; border-left-color: var(--sidebar-hover); background: #ffffff; }
-        .shortcut-icon { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; flex: 0 0 auto; border-radius: 8px; background: var(--primary-blue); color: #ffffff; box-shadow: inset 0 -10px 18px rgba(8, 59, 104, .18); }
-        .shortcut-icon .icon { width: 23px; height: 23px; }
-        .shortcut-card strong { display: block; margin-bottom: 4px; color: var(--text-dark); font-size: 13px; font-weight: 700; }
-        .shortcut-card small { display: block; color: var(--text-muted); font-size: 12px; line-height: 1.4; }
+        .feature-section { margin-top: 16px; }
+        .feature-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+        .feature-header h2 { margin: 0; color: var(--text-dark); font-size: 16px; font-weight: 700; }
+        .feature-header p { margin: 4px 0 0; color: var(--text-muted); font-size: 12px; line-height: 1.4; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+        .feature-card { display: flex; flex-direction: column; align-items: flex-start; min-height: 156px; padding: 14px; border: 1px solid var(--border); border-radius: 12px; background: #ffffff; color: var(--text-dark); box-shadow: var(--shadow); transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease; }
+        .feature-card:hover { border-color: var(--primary-blue); box-shadow: 0 8px 18px rgba(15, 23, 42, .08); transform: translateY(-2px); }
+        .feature-icon { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; flex: 0 0 auto; margin-bottom: 11px; border-radius: 14px; background: var(--light-blue); color: var(--primary-blue); border: 1px solid #cfe4ff; }
+        .feature-icon .icon { width: 27px; height: 27px; }
+        .feature-title { display: block; margin-bottom: 5px; color: var(--text-dark); font-size: 14px; font-weight: 700; line-height: 1.3; }
+        .feature-description { display: block; flex: 1; color: var(--text-muted); font-size: 12px; line-height: 1.45; }
+        .feature-action { display: inline-flex; align-items: center; margin-top: 10px; color: var(--primary-blue); font-size: 12px; font-weight: 700; }
         body:not(.has-active-overlay).modal-open,
         body:not(.has-active-overlay).loading,
         body:not(.has-active-overlay).disabled {
@@ -169,6 +173,7 @@
             .topbar-actions .button, .topbar-actions form { width: 100%; }
             .topbar-actions form .button { width: 100%; }
             .grid, .stats-grid { grid-template-columns: 1fr; }
+            .feature-grid { grid-template-columns: 1fr; }
             .card, .panel, .stat-card { padding: 14px; border-radius: 6px; }
             .card-number, .stat-value { font-size: 28px; }
         }

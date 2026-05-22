@@ -38,6 +38,7 @@ Dự án sử dụng Laravel. Mã nguồn chính hiện nằm trong thư mục `
 - Bảng Kanban công việc theo trạng thái, có bộ lọc và nút chuyển trạng thái.
 - Báo cáo và thống kê công việc theo trạng thái, mức ưu tiên, dự án, người dùng và phòng ban.
 - Báo cáo hiệu suất nhân viên và tiến độ dự án bằng bảng và thanh tiến độ đơn giản.
+- Dashboard có mục "Chức năng chính" với thẻ biểu tượng theo vai trò để truy cập nhanh các chức năng phù hợp.
 
 ## Phân quyền chính
 

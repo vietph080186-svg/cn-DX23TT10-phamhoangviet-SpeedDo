@@ -38,6 +38,7 @@
 - [x] Xây dựng dashboard Admin cơ bản
 - [x] Xây dựng dashboard Manager cơ bản
 - [x] Xây dựng dashboard Staff cơ bản
+- [x] Bổ sung mục chức năng chính bằng thẻ biểu tượng theo vai trò trên dashboard
 - [x] Xây dựng quản lý người dùng
 - [x] Xây dựng quản lý phòng ban
 - [x] Xây dựng quản lý dự án
