@@ -1,53 +1,46 @@
 # 02. Thiết kế hệ thống
 
-## Cấu trúc thư mục
+## Cấu trúc mã nguồn
 
 ```text
 .
-├── README.md
-├── TODO.md
-├── index.html
-├── assets/
-├── progress-report/
-├── setup/
-├── src/
-│   ├── main.js
-│   └── style.css
-└── thesis/
-    ├── abs/
-    ├── doc/
-    ├── html/
-    ├── pdf/
-    └── refs/
+|-- README.md
+|-- TODO.md
+|-- progress-report/
+|-- setup/database/
+|-- scr/
+|   |-- app/
+|   |-- database/
+|   |-- resources/views/
+|   |-- routes/
+|   `-- tests/
+`-- thesis/doc/
 ```
 
-## Các file chính
+Mã nguồn Laravel của SpeedDo nằm trong thư mục `scr`. Các tài liệu tiến độ, tài liệu đồ án và tệp SQL tham khảo được tổ chức riêng để phục vụ báo cáo và kiểm thử.
 
-- `index.html`: chứa cấu trúc giao diện, khu vực hiển thị SVG và các điều khiển.
-- `src/style.css`: định dạng giao diện, bố cục, màu sắc, trạng thái nút và hiển thị responsive.
-- `src/main.js`: xử lý tương tác của người dùng và cập nhật thuộc tính của SVG.
-- `README.md`: mô tả dự án, chức năng, cấu trúc thư mục và cách chạy.
-- `TODO.md`: ghi lại các công việc đã hoàn thành và các công việc còn lại.
+## Thành phần chính
 
-## Ý tưởng thiết kế giao diện
+- `scr/app/Models`: mô hình dữ liệu người dùng, phòng ban, dự án, công việc, bình luận, lịch sử và thông báo.
+- `scr/app/Http/Controllers`: xử lý đăng nhập, dashboard, CRUD, Kanban, báo cáo và thông báo.
+- `scr/resources/views`: giao diện Blade tiếng Việt theo vai trò sử dụng.
+- `scr/routes/web.php`: định tuyến web và nhóm truy cập cần đăng nhập hoặc phân quyền.
+- `scr/database/migrations` và `seeders`: cấu trúc cơ sở dữ liệu và dữ liệu trình diễn.
 
-Giao diện được chia thành hai phần chính:
+## Phân quyền
 
-- Khu vực hiển thị SVG: nằm ở bên trái hoặc phía trên trên màn hình nhỏ, dùng để xem kết quả thay đổi.
-- Bảng điều khiển: chứa các thành phần cho phép người dùng chọn hình dạng, màu sắc, kích thước, góc xoay và độ dày viền.
+- Admin quản lý toàn hệ thống và dữ liệu nền tảng.
+- Manager quản lý nghiệp vụ dự án, danh mục và công việc liên quan.
+- Staff xem công việc được giao, cập nhật tiến độ và gửi kết quả.
 
-Thiết kế hướng đến sự đơn giản, dễ quan sát và phù hợp với người mới học. Các nút và thanh kéo được đặt rõ ràng để người dùng dễ thao tác.
+## Luồng xử lý công việc
 
-## Luồng tương tác SVG
+1. Admin hoặc Manager tạo công việc và giao cho Staff.
+2. Staff chuyển công việc từ `Mới giao` sang `Đang làm`.
+3. Staff nhập kết quả và gửi công việc sang `Chờ duyệt`.
+4. Admin hoặc Manager duyệt `Hoàn thành` hoặc chuyển sang `Cần sửa lại`.
+5. Hệ thống ghi lịch sử trạng thái và tạo thông báo cho người liên quan.
 
-1. Người dùng chọn một điều khiển trên giao diện.
-2. JavaScript nhận sự kiện từ điều khiển đó.
-3. Giá trị hiện tại được cập nhật trong biến trạng thái.
-4. Hàm cập nhật SVG thay đổi các thuộc tính như màu, hình dạng, kích thước, góc xoay và độ dày viền.
-5. Dòng trạng thái được cập nhật để mô tả kết quả hiện tại.
+## Giao diện
 
-Ví dụ:
-
-- Khi người dùng chọn màu đỏ, JavaScript thay đổi thuộc tính `fill` của hình SVG.
-- Khi người dùng kéo thanh kích thước, JavaScript thay đổi tỉ lệ hiển thị của nhóm SVG.
-- Khi người dùng bấm “Đặt lại”, các giá trị trở về trạng thái mặc định.
+Giao diện sử dụng bố cục sidebar, thanh tiêu đề và khu vực nội dung chính. Dashboard cung cấp lối tắt theo vai trò; Kanban trình bày công việc theo trạng thái; báo cáo tổng hợp dữ liệu phù hợp với quyền truy cập.

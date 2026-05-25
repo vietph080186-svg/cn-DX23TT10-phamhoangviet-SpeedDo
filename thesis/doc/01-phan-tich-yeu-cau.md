@@ -2,37 +2,31 @@
 
 ## Mục đích dự án
 
-Dự án “Xưởng SVG Mini” được xây dựng nhằm minh họa cách sử dụng SVG trong một trang web tĩnh. Người dùng có thể thao tác trực tiếp với một đối tượng SVG thông qua các điều khiển đơn giản trên giao diện.
-
-Mục tiêu chính của dự án là:
-
-- Tạo một ứng dụng web nhỏ, dễ sử dụng.
-- Áp dụng HTML, CSS, JavaScript và SVG vào một sản phẩm hoàn chỉnh.
-- Giúp người học hiểu cách JavaScript thay đổi thuộc tính hiển thị của SVG.
-- Phù hợp với phạm vi đồ án học phần, không sử dụng backend hoặc cơ sở dữ liệu.
+Hệ thống quản lý giao việc SpeedDo hỗ trợ tổ chức phân công nhiệm vụ, theo dõi tiến độ và kiểm soát kết quả thực hiện. Ứng dụng giúp người quản lý nắm tình trạng công việc, đồng thời giúp nhân viên tiếp nhận và báo cáo kết quả rõ ràng.
 
 ## Người dùng mục tiêu
 
-- Sinh viên cần tìm hiểu HTML, CSS, JavaScript và SVG.
-- Giảng viên hoặc người chấm bài cần kiểm tra chức năng cơ bản của đồ án.
-- Người mới học lập trình web muốn xem ví dụ đơn giản về SVG tương tác.
+- Admin quản trị tài khoản, phòng ban và theo dõi toàn bộ hệ thống.
+- Manager quản lý dự án, danh mục, giao việc và duyệt kết quả liên quan.
+- Staff tiếp nhận công việc, cập nhật trạng thái, gửi kết quả và trao đổi.
 
 ## Yêu cầu chức năng
 
-- Hiển thị một đối tượng SVG ở khu vực trung tâm.
-- Cho phép người dùng chọn hình dạng gồm hình tròn, hình vuông và hình tam giác.
-- Cho phép người dùng đổi màu của đối tượng SVG.
-- Cho phép người dùng thay đổi kích thước của đối tượng SVG.
-- Cho phép người dùng xoay đối tượng SVG.
-- Cho phép người dùng điều chỉnh độ dày viền của đối tượng SVG.
-- Có nút đặt lại để đưa giao diện về trạng thái ban đầu.
-- Hiển thị dòng trạng thái mô tả lựa chọn hiện tại của người dùng.
+- Đăng nhập, đăng xuất và điều hướng dashboard theo vai trò.
+- Quản lý người dùng, phòng ban, dự án và danh mục công việc.
+- Tạo, sửa, xem, xóa, tìm kiếm và lọc công việc theo quyền.
+- Giao công việc cho nhân viên và gắn công việc với phòng ban, dự án.
+- Cập nhật trạng thái theo luồng `Mới giao`, `Đang làm`, `Chờ duyệt`, `Hoàn thành` và `Cần sửa lại`.
+- Ghi nhận bình luận, kết quả thực hiện và lịch sử trạng thái.
+- Hiển thị Kanban, thông báo trong hệ thống và báo cáo cơ bản.
 
 ## Yêu cầu phi chức năng
 
-- Giao diện sử dụng tiếng Việt, rõ ràng và dễ hiểu.
-- Mã nguồn đơn giản, dễ đọc, phù hợp với sinh viên.
-- Không sử dụng framework hoặc thư viện bên ngoài.
-- Có thể chạy trực tiếp bằng trình duyệt web.
-- Cấu trúc thư mục rõ ràng, phù hợp để nộp lên GitHub.
-- Trang web hiển thị được trên máy tính và màn hình nhỏ.
+- Giao diện tiếng Việt, nhất quán với nhận diện SpeedDo.
+- Phân quyền rõ ràng, ngăn truy cập trái phép vào dữ liệu và thao tác quản trị.
+- Dữ liệu được lưu trong cơ sở dữ liệu và có dữ liệu mẫu để trình diễn.
+- Ứng dụng có thể chạy trong môi trường phát triển Laravel thông dụng.
+
+## Phạm vi
+
+Đề tài tập trung vào quy trình quản lý giao việc nội bộ. Các chức năng nâng cao như thông báo thời gian thực, xuất báo cáo nâng cao và Kanban kéo thả được định hướng phát triển sau.

@@ -5,26 +5,25 @@
 - Sinh viên: Phạm Hoàng Việt
 - MSSV: vietph080186
 - Lớp: DX23TT10
-- Repository: cn-DX23TT10-phamhoangviet-vietph080186-svg
+- Tên đề tài: Hệ thống quản lý giao việc SpeedDo
+- Repository: cn-DX23TT10-phamhoangviet-SpeedDo
 
 ## Công việc đã thực hiện
 
-- Tạo GitHub repository.
-- Clone repository về máy cá nhân.
-- Tạo cấu trúc thư mục theo yêu cầu đồ án.
-- Cập nhật README.md.
-- Tạo phiên bản đầu tiên của ứng dụng SVG.
-- Commit và push mã nguồn lên GitHub.
+- Khởi tạo repository và cấu trúc thư mục nộp đồ án.
+- Xác định phạm vi hệ thống quản lý giao việc cho tổ chức.
+- Xác định ba vai trò sử dụng chính: Admin, Manager và Staff.
+- Phác thảo các nhóm chức năng: dự án, công việc, phân công, trạng thái và thông báo.
+- Chuẩn bị tài liệu mô tả đề tài và kế hoạch thực hiện.
 
 ## Kết quả
 
-- Repository đã có cấu trúc ban đầu.
-- Ứng dụng web có thể chạy bằng trình duyệt.
-- Có sử dụng HTML, CSS, JavaScript và SVG.
+- Đề tài và tên sản phẩm SpeedDo đã được xác định.
+- Cấu trúc tài liệu và mã nguồn ban đầu đã được tổ chức.
+- Phạm vi chức năng cơ bản phù hợp với bài toán giao việc.
 
 ## Kế hoạch tiếp theo
 
-- Hoàn thiện giao diện.
-- Bổ sung chức năng tương tác với SVG.
-- Viết tài liệu mô tả chương trình.
-- Chuẩn bị nội dung báo cáo đồ án.
+- Khởi tạo ứng dụng Laravel.
+- Thiết kế cơ sở dữ liệu và dữ liệu mẫu.
+- Xây dựng đăng nhập, phân quyền và dashboard theo vai trò.

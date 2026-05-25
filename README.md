@@ -1,4 +1,4 @@
-# Đồ án học phần: Hệ thống quản lý giao việc
+# Đồ án học phần: Hệ thống quản lý giao việc SpeedDo
 
 ## Thông tin sinh viên
 
@@ -6,11 +6,11 @@
 - MSSV: 170123377
 - Lớp: DX23TT10
 - Định danh repo: vietph080186
-- Repo: cn-DX23TT10-phamhoangviet-vietph080186-svg
+- Repo: cn-DX23TT10-phamhoangviet-SpeedDo
 
 ## Mô tả dự án
 
-Hệ thống quản lý giao việc là ứng dụng web hỗ trợ tổ chức quản lý dự án, phân công nhiệm vụ, theo dõi trạng thái công việc và trao đổi thông tin trong quá trình thực hiện.
+SpeedDo là hệ thống quản lý giao việc hỗ trợ tổ chức quản lý dự án, phân công nhiệm vụ, theo dõi trạng thái công việc và trao đổi thông tin trong quá trình thực hiện.
 
 Dự án sử dụng Laravel. Mã nguồn chính hiện nằm trong thư mục `scr`.
 

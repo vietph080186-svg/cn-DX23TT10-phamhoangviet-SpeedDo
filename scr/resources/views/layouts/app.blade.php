@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Hệ thống quản lý giao việc')</title>
+    <title>@yield('title', 'SpeedDo - Hệ thống quản lý giao việc')</title>
     @if (file_exists(public_path('hot')) || file_exists(public_path('build/manifest.json')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @endif
@@ -236,8 +236,8 @@
         <div class="app-shell">
             <aside class="sidebar">
                 <a class="sidebar-brand" href="{{ route('dashboard') }}">
-                    <strong>Quản lý giao việc</strong>
-                    <span>Task Management</span>
+                    <strong>SpeedDo</strong>
+                    <span>Hệ thống quản lý giao việc</span>
                 </a>
 
                 <nav class="sidebar-nav" aria-label="Điều hướng chính">
@@ -279,8 +279,8 @@
             <div class="main-wrapper">
                 <header class="topbar">
                     <div>
-                        <h1 class="topbar-title">@yield('title', 'Hệ thống quản lý giao việc')</h1>
-                        <p class="topbar-subtitle">Hệ thống quản lý giao việc</p>
+                        <h1 class="topbar-title">@yield('title', 'SpeedDo')</h1>
+                        <p class="topbar-subtitle">Hệ thống quản lý giao việc SpeedDo</p>
                     </div>
 
                     <div class="topbar-actions">

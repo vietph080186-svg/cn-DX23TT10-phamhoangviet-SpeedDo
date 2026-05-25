@@ -1,6 +1,6 @@
-# Hệ thống quản lý giao việc
+# Hệ thống quản lý giao việc SpeedDo
 
-Mã nguồn Laravel cho ứng dụng quản lý, phân công và theo dõi tiến độ công việc trong đơn vị.
+Mã nguồn Laravel cho ứng dụng SpeedDo, hỗ trợ quản lý, phân công và theo dõi tiến độ công việc trong đơn vị.
 
 ## Công nghệ
 

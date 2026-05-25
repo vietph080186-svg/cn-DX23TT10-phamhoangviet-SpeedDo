@@ -2,48 +2,31 @@
 
 ## Chức năng đã hoàn thành
 
-- Xây dựng giao diện web bằng HTML và CSS.
-- Hiển thị đối tượng SVG trong khu vực trung tâm.
-- Cho phép chọn hình dạng: hình tròn, hình vuông và hình tam giác.
-- Cho phép đổi màu đối tượng SVG.
-- Cho phép thay đổi kích thước đối tượng SVG.
-- Cho phép xoay đối tượng SVG.
-- Cho phép thay đổi độ dày viền của đối tượng SVG.
-- Có nút đặt lại trạng thái ban đầu.
-- Có dòng trạng thái mô tả lựa chọn hiện tại.
+- Giao diện đăng nhập và dashboard theo vai trò.
+- Quản lý người dùng, phòng ban, dự án, danh mục và công việc.
+- Giao việc, cập nhật trạng thái, bình luận và lịch sử trạng thái.
+- Thông báo trong hệ thống cho các sự kiện nghiệp vụ chính.
+- Bảng Kanban theo trạng thái và bộ lọc cơ bản.
+- Báo cáo tổng quan, báo cáo công việc, người dùng và dự án.
 
 ## Trường hợp kiểm thử
 
 | STT | Nội dung kiểm thử | Kết quả mong đợi | Trạng thái |
 | --- | --- | --- | --- |
-| 1 | Mở file `index.html` | Trang web hiển thị bình thường | Đạt |
-| 2 | Chọn hình vuông | SVG chuyển sang hình vuông | Đạt |
-| 3 | Chọn hình tam giác | SVG chuyển sang hình tam giác | Đạt |
-| 4 | Chọn các nút màu | Màu SVG thay đổi đúng | Đạt |
-| 5 | Kéo thanh kích thước | SVG thay đổi kích thước | Đạt |
-| 6 | Kéo thanh góc xoay | SVG xoay theo giá trị đã chọn | Đạt |
-| 7 | Kéo thanh độ dày viền | Viền SVG thay đổi độ dày | Đạt |
-| 8 | Bấm nút “Đặt lại” | Giao diện trở về trạng thái mặc định | Đạt |
+| 1 | Đăng nhập bằng tài khoản mẫu | Mở đúng dashboard theo vai trò | Đạt |
+| 2 | Admin quản lý người dùng và phòng ban | Thao tác được phép thực hiện thành công | Đạt |
+| 3 | Manager tạo và giao công việc | Staff nhìn thấy công việc được giao | Đạt |
+| 4 | Staff gửi công việc chờ duyệt | Trạng thái và lịch sử được cập nhật | Đạt |
+| 5 | Manager duyệt hoàn thành hoặc yêu cầu sửa | Staff nhận được thông báo phù hợp | Đạt |
+| 6 | Mở bảng Kanban | Công việc hiển thị theo trạng thái | Đạt |
+| 7 | Mở báo cáo bằng từng vai trò | Dữ liệu được giới hạn theo quyền | Đạt |
 
-## Ảnh minh chứng
+## Đánh giá
 
-Chèn ảnh minh chứng vào phần này sau khi chụp màn hình:
+SpeedDo đáp ứng các nghiệp vụ chính của bài toán quản lý giao việc: phân quyền, quản lý dữ liệu nền tảng, giao nhiệm vụ, theo dõi quy trình và tổng hợp kết quả. Giao diện tiếng Việt giúp việc trình diễn và kiểm tra chức năng thuận tiện.
 
-- Ảnh giao diện chính.
-- Ảnh khi đổi hình dạng.
-- Ảnh khi đổi màu, kích thước, góc xoay hoặc độ dày viền.
+## Hạn chế và hướng phát triển
 
-## Hạn chế
-
-- Dự án mới dừng ở mức minh họa thao tác SVG cơ bản.
-- Chưa có chức năng lưu cấu hình SVG.
-- Chưa có chức năng xuất SVG thành file ảnh.
-- Chưa có nhiều mẫu SVG phức tạp.
-
-## Hướng phát triển
-
-- Thêm nhiều hình dạng SVG hơn.
-- Cho phép người dùng nhập màu tùy chọn.
-- Thêm chức năng tải SVG về máy.
-- Thêm khu vực hiển thị mã SVG tương ứng với lựa chọn hiện tại.
-- Bổ sung ảnh minh chứng và hoàn thiện báo cáo đồ án.
+- Bảng Kanban hiện chuyển trạng thái bằng thao tác nút, chưa hỗ trợ kéo thả.
+- Thông báo đang lưu trong hệ thống, chưa cập nhật thời gian thực.
+- Báo cáo có thể được mở rộng thêm chức năng xuất tệp và biểu đồ chi tiết.

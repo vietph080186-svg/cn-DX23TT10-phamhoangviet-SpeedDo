@@ -7,9 +7,9 @@
         <section class="login-hero" aria-label="Giới thiệu hệ thống">
             <div class="login-hero-content">
                 <p class="login-kicker">NỀN TẢNG LÀM VIỆC NHÓM</p>
-                <h1>Hệ thống quản lý giao việc</h1>
-                <h2>Giao việc thông minh - Theo dõi tiến độ hiệu quả</h2>
-                <p class="login-hero-text">Kết nối công việc, phân công rõ ràng, theo dõi tiến độ và nâng cao hiệu quả làm việc nhóm.</p>
+                <h1>SpeedDo</h1>
+                <h2>Hệ thống quản lý giao việc</h2>
+                <p class="login-hero-text">Giao việc rõ ràng, theo dõi tiến độ hiệu quả và kết nối công việc của nhóm trong một hệ thống thống nhất.</p>
                 <p class="login-hero-note">Đơn giản, rõ ràng và phù hợp cho quản lý công việc hằng ngày.</p>
             </div>
 

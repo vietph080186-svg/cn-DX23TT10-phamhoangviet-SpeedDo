@@ -2,44 +2,49 @@
 
 ## Phần mềm cần có
 
-- Trình duyệt web hiện đại như Google Chrome, Microsoft Edge hoặc Firefox.
-- Visual Studio Code hoặc trình soạn thảo mã nguồn tương tự.
-- Git nếu muốn clone repo từ GitHub.
+- PHP và Composer.
+- MySQL.
+- Git.
+- Trình duyệt web hiện đại.
 
-Dự án không cần cài đặt framework, thư viện ngoài, backend hoặc cơ sở dữ liệu.
-
-## Cách clone repo
-
-Mở terminal hoặc Git Bash, sau đó chạy lệnh:
+## Tải mã nguồn
 
 ```bash
-git clone <duong-dan-repo>
+git clone <duong-dan-repository>
+cd cn-DX23TT10-phamhoangviet-SpeedDo/scr
 ```
 
-Sau khi clone xong, mở thư mục dự án:
+## Cài đặt ứng dụng
 
 ```bash
-cd cn-DX23TT10-phamhoangviet-vietph080186-svg
+composer install
+copy .env.example .env
+php artisan key:generate
+php artisan migrate:fresh --seed
+php artisan serve
 ```
 
-## Cách chạy `index.html`
+Trước khi chạy migration, cấu hình kết nối MySQL trong tệp `.env` của môi trường cục bộ.
 
-Có thể chạy dự án theo một trong các cách sau:
+## Truy cập
 
-1. Mở thư mục dự án bằng Visual Studio Code.
-2. Tìm file `index.html`.
-3. Nhấp đúp vào file hoặc chọn mở bằng trình duyệt.
+Mở trình duyệt tại:
 
-Vì đây là dự án web tĩnh nên không cần chạy server riêng.
+```text
+http://127.0.0.1:8000/login
+```
 
-## Cách kiểm tra chức năng
+## Tài khoản dùng thử
 
-Sau khi mở `index.html`, kiểm tra các chức năng sau:
+| Vai trò | Email | Mật khẩu |
+| --- | --- | --- |
+| Quản trị viên | admin@example.com | password |
+| Quản lý | manager@example.com | password |
+| Nhân viên | staff@example.com | password |
 
-- Chọn hình tròn, hình vuông và hình tam giác.
-- Chọn từng nút màu và quan sát màu SVG thay đổi.
-- Kéo thanh kích thước để phóng to hoặc thu nhỏ hình.
-- Kéo thanh góc xoay để xoay hình SVG.
-- Kéo thanh độ dày viền để thay đổi viền của hình.
-- Bấm nút “Đặt lại” để đưa giao diện về trạng thái ban đầu.
-- Quan sát dòng trạng thái bên dưới SVG để kiểm tra thông tin hiển thị.
+## Kiểm tra chức năng chính
+
+- Đăng nhập bằng từng vai trò và kiểm tra dashboard tương ứng.
+- Kiểm tra quản lý dự án, danh mục và công việc theo quyền.
+- Thực hiện quy trình giao việc, gửi duyệt và duyệt kết quả.
+- Mở Kanban, thông báo và báo cáo để kiểm tra dữ liệu hiển thị.
