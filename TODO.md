@@ -1,76 +1,31 @@
 # TODO - SpeedDo
 
-## Giai đoạn 1: Chuẩn bị dự án
+## Đã hoàn thành
 
-- [x] Xác định tên đề tài chính thức
-- [x] Cập nhật README.md theo đề tài
-- [x] Tạo cấu trúc thư mục cần thiết
-- [x] Tạo thư mục `setup/database`
-- [x] Cập nhật `.gitignore` cho dự án Laravel/PHP
-- [x] Khởi tạo project Laravel trong thư mục `scr`
-- [ ] Kiểm tra lại yêu cầu đồ án với giảng viên
+- [x] Xác định đề tài và nhận diện Hệ thống quản lý giao việc SpeedDo.
+- [x] Khởi tạo ứng dụng Laravel trong thư mục `scr` và cấu trúc tài liệu đồ án.
+- [x] Thiết kế cơ sở dữ liệu MySQL, migration, model, quan hệ và dữ liệu mẫu.
+- [x] Xây dựng đăng nhập, đăng xuất và phân quyền Admin, Manager, Staff.
+- [x] Xây dựng dashboard theo vai trò và các lối tắt chức năng.
+- [x] Xây dựng CRUD người dùng, phòng ban, dự án, danh mục và công việc.
+- [x] Xây dựng quy trình giao việc, cập nhật trạng thái, bình luận và lịch sử.
+- [x] Xây dựng Kanban cơ bản, báo cáo cơ bản và thông báo trong hệ thống.
+- [x] Tạo checklist kiểm thử thủ công trong `progress-report/test-checklist.md`.
+- [x] Cập nhật README, tài liệu tiến độ và tài liệu đồ án theo SpeedDo.
 
-## Giai đoạn 2: Phân tích và thiết kế
+## Đang kiểm thử / hoàn thiện
 
-- [x] Xác định vai trò người dùng: Admin, Manager, Staff
-- [x] Thiết kế cơ sở dữ liệu MySQL ban đầu
-- [x] Xác định bảng vai trò, phòng ban, dự án, danh mục công việc, công việc, bình luận, lịch sử trạng thái và thông báo
-- [x] Phân tích luồng giao việc cơ bản
-- [x] Thiết kế Kanban cơ bản theo cột trạng thái
-- [ ] Phân tích chi tiết chức năng báo cáo và thống kê
-- [ ] Thiết kế Kanban kéo thả
+- [ ] Kiểm thử cài đặt sạch, migration và dữ liệu mẫu trên MySQL.
+- [ ] Kiểm thử đăng nhập, đăng xuất, dashboard và phân quyền theo vai trò.
+- [ ] Kiểm thử CRUD người dùng, phòng ban, dự án, danh mục và công việc.
+- [ ] Kiểm thử toàn bộ quy trình giao việc, bình luận và lịch sử trạng thái.
+- [ ] Kiểm thử Kanban, báo cáo và thông báo trong hệ thống.
+- [ ] Bổ sung ảnh minh chứng, sơ đồ và hoàn thiện tài liệu nộp đồ án.
+- [ ] Kiểm tra repository lần cuối trước khi commit và push.
 
-## Giai đoạn 3: Nền tảng Laravel
+## Hướng phát triển
 
-- [x] Cấu hình cấu trúc migration ban đầu
-- [x] Cập nhật bảng users với vai trò, phòng ban, họ tên, số điện thoại và trạng thái
-- [x] Tạo model và quan hệ Eloquent
-- [x] Tạo dữ liệu mẫu bằng seeder
-- [x] Tạo tệp SQL tham khảo trong `setup/database`
-- [x] Tạo layout Blade cơ bản
-- [x] Cấu hình CSS đơn giản
-- [x] Tạo middleware kiểm tra vai trò
-
-## Giai đoạn 4: Xây dựng chức năng
-
-- [x] Xây dựng chức năng đăng nhập và đăng xuất
-- [x] Xây dựng điều hướng dashboard theo vai trò
-- [x] Xây dựng dashboard Admin cơ bản
-- [x] Xây dựng dashboard Manager cơ bản
-- [x] Xây dựng dashboard Staff cơ bản
-- [x] Bổ sung mục chức năng chính bằng thẻ biểu tượng theo vai trò trên dashboard
-- [x] Xây dựng quản lý người dùng
-- [x] Xây dựng quản lý phòng ban
-- [x] Xây dựng quản lý dự án
-- [x] Xây dựng quản lý danh mục công việc
-- [x] Xây dựng quản lý công việc và phân công
-- [x] Xây dựng cập nhật trạng thái công việc
-- [x] Xây dựng bình luận công việc
-- [x] Ghi lịch sử trạng thái công việc
-- [x] Tạo thông báo cơ bản trong cơ sở dữ liệu
-- [x] Xây dựng giao diện thông báo đơn giản
-- [x] Xây dựng bảng Kanban cơ bản
-- [x] Xây dựng báo cáo và thống kê cơ bản
-- [ ] Xây dựng Kanban kéo thả
-- [ ] Xây dựng xuất báo cáo nâng cao
-- [ ] Xây dựng thông báo thời gian thực
-
-## Giai đoạn 5: Kiểm thử và hoàn thiện
-
-- [x] Tạo checklist kiểm thử thủ công tổng thể trong `progress-report/test-checklist.md`
-- [ ] Kiểm thử migration và dữ liệu mẫu
-- [ ] Kiểm thử đăng nhập, đăng xuất và dashboard theo vai trò
-- [ ] Kiểm thử quản lý người dùng
-- [ ] Kiểm thử quản lý phòng ban
-- [ ] Kiểm thử quản lý dự án
-- [ ] Kiểm thử quản lý danh mục công việc
-- [ ] Kiểm thử quy trình giao việc
-- [ ] Kiểm thử thông báo trong hệ thống
-- [ ] Kiểm thử bảng Kanban cơ bản
-- [ ] Kiểm thử báo cáo và thống kê cơ bản
-- [ ] Kiểm thử bình luận và lịch sử trạng thái
-- [ ] Cập nhật báo cáo tiến độ trong `progress-report`
-- [ ] Hoàn thiện tài liệu trong `thesis/doc`
-- [ ] Xuất tài liệu sang `thesis/pdf`
-- [ ] Kiểm tra repo trước khi nộp
-- [ ] Commit và push source code lên GitHub
+- [ ] Xây dựng Kanban kéo thả.
+- [ ] Xây dựng xuất báo cáo nâng cao.
+- [ ] Xây dựng thông báo thời gian thực.
+- [ ] Bổ sung biểu đồ báo cáo nâng cao.

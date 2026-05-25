@@ -57,17 +57,22 @@ Dự án sử dụng Laravel. Mã nguồn chính hiện nằm trong thư mục `
 - Staff có thể chuyển `Cần sửa lại` về `Đang làm`.
 - Bảng Kanban hiện dùng nút thao tác để chuyển trạng thái, chưa hỗ trợ kéo thả.
 
-## Thiết lập cơ sở dữ liệu
+## Cài đặt sạch
 
-```bash
-cd scr
-php artisan migrate:fresh --seed
+Tạo cơ sở dữ liệu MySQL trước khi chạy migration:
+
+```sql
+CREATE DATABASE quan_ly_giao_viec CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
-## Chạy ứng dụng
+Sau đó cài đặt và khởi chạy ứng dụng:
 
 ```bash
 cd scr
+composer install
+copy .env.example .env
+php artisan key:generate
+php artisan migrate:fresh --seed
 php artisan serve
 ```
 

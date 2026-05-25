@@ -1,8 +1,8 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "phamhoangviet/speeddo",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "SpeedDo - He thong quan ly giao viec",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {

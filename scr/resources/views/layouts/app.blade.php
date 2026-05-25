@@ -46,7 +46,7 @@
         .icon { width: 16px; height: 16px; flex: 0 0 auto; fill: currentColor; }
         .sidebar-icon { width: 13px; height: 13px; opacity: .92; }
         .menu-label { display: inline-flex; align-items: center; gap: 7px; min-width: 0; }
-        .main-wrapper { min-width: 0; }
+        .main-wrapper { display: flex; flex-direction: column; min-width: 0; min-height: 100vh; }
         .topbar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; padding: 8px 18px; background: var(--card-bg); border-bottom: 1px solid var(--border); }
         .topbar-title { margin: 0; color: var(--text-dark); font-size: 18px; font-weight: 700; }
         .topbar-subtitle { margin: 2px 0 0; color: var(--text-muted); font-size: 12px; font-weight: 400; }
@@ -54,7 +54,9 @@
         .user-box { justify-content: flex-end; }
         .user-name { color: var(--text-dark); font-size: 13px; font-weight: 600; }
         .role-badge { display: inline-flex; align-items: center; min-height: 28px; padding: 0 9px; border-radius: 5px; background: var(--light-blue); color: var(--dark-blue); font-size: 12px; font-weight: 600; }
-        .main-content { padding: 16px 18px 22px; }
+        .main-content { flex: 1; padding: 16px 18px 22px; }
+        .app-footer { padding: 10px 18px; border-top: 1px solid var(--border); background: #ffffff; color: var(--text-muted); font-size: 12px; line-height: 1.45; text-align: center; }
+        .login-footer { background: #f8fbff; color: #52657f; }
         .container { width: min(100%, 1200px); margin: 0 auto; }
         .page-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
         .page-title { margin: 0; color: var(--text-dark); font-size: 24px; font-weight: 700; line-height: 1.2; }
@@ -70,8 +72,8 @@
         .stat-card-primary::before { background: var(--primary-blue); }
         .card-title, .stat-label { position: relative; z-index: 1; margin: 0 38px 10px 0; color: var(--text-muted); font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
         .card-number, .stat-value { position: relative; z-index: 1; margin: 0; color: var(--primary-blue); font-size: 28px; font-weight: 700; line-height: 1; }
-        .login-page { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(390px, .9fr); min-height: 100vh; background: linear-gradient(135deg, #f8fbff 0%, #eff6ff 52%, #ffffff 100%); }
-        .login-hero { position: relative; display: flex; align-items: center; min-height: 100vh; padding: clamp(42px, 7vw, 92px); overflow: hidden; background: radial-gradient(circle at 16% 20%, rgba(186, 230, 253, .82), transparent 27%), radial-gradient(circle at 78% 16%, rgba(253, 230, 138, .42), transparent 22%), radial-gradient(circle at 88% 80%, rgba(187, 247, 208, .68), transparent 30%), linear-gradient(135deg, #ffffff 0%, #f8fbff 42%, #dbeafe 100%); color: #0f172a; }
+        .login-page { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(390px, .9fr); min-height: calc(100vh - 39px); background: linear-gradient(135deg, #f8fbff 0%, #eff6ff 52%, #ffffff 100%); }
+        .login-hero { position: relative; display: flex; align-items: center; min-height: calc(100vh - 39px); padding: clamp(42px, 7vw, 92px); overflow: hidden; background: radial-gradient(circle at 16% 20%, rgba(186, 230, 253, .82), transparent 27%), radial-gradient(circle at 78% 16%, rgba(253, 230, 138, .42), transparent 22%), radial-gradient(circle at 88% 80%, rgba(187, 247, 208, .68), transparent 30%), linear-gradient(135deg, #ffffff 0%, #f8fbff 42%, #dbeafe 100%); color: #0f172a; }
         .login-hero::before { content: ""; position: absolute; width: 430px; height: 430px; right: -145px; top: -120px; border-radius: 999px; background: rgba(103, 232, 249, .2); filter: blur(2px); }
         .login-hero::after { content: ""; position: absolute; right: 9%; bottom: 13%; width: 300px; height: 185px; border-radius: 30px; background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(239,246,255,.42)); border: 1px solid rgba(37,99,235,.1); box-shadow: 0 22px 54px rgba(37, 99, 235, .09); transform: rotate(-4deg); }
         .login-hero-content { position: relative; z-index: 1; max-width: 610px; transform: translateY(-2vh); }
@@ -298,10 +300,12 @@
                 <div class="main-content">
                     @yield('content')
                 </div>
+                <footer class="app-footer">Phạm Hoàng Việt - MSSV: 170123377 - Lớp: DX23TT10 - Đề tài: Hệ thống quản lý giao việc SpeedDo</footer>
             </div>
         </div>
     @else
         @yield('content')
+        <footer class="app-footer login-footer">Phạm Hoàng Việt - MSSV: 170123377 - Lớp: DX23TT10 - Đề tài: Hệ thống quản lý giao việc SpeedDo</footer>
     @endauth
 
     <script>
